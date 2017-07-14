@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/12/ng_chajian/index.html">
 <meta property="og:site_name" content="前端小生活">
 <meta property="og:description" content="如果我们在开发Angular应用的时候想使用第三方的库，比如jQuery或bootstrap等，该如何去引入并使用呢？主要通过三步：">
-<meta property="og:updated_time" content="2017-07-13T03:42:02.110Z">
+<meta property="og:updated_time" content="2017-07-13T06:59:26.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular 引入第三方库">
 <meta name="twitter:description" content="如果我们在开发Angular应用的时候想使用第三方的库，比如jQuery或bootstrap等，该如何去引入并使用呢？主要通过三步：">
@@ -183,15 +183,12 @@
       
         <p>如果我们在开发Angular应用的时候想使用第三方的库，比如jQuery或bootstrap等，该如何去引入并使用呢？<br>主要通过三步：</p>
 <a id="more"></a>
-<p><strong> 1、下载 </strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install jquery –-save-dev</div><div class="line">$ npm install bootstrap –-save-dev</div></pre></td></tr></table></figure>
+<h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install jquery –-save-dev</div><div class="line">$ npm install bootstrap –-save-dev</div></pre></td></tr></table></figure>
 <p>打开，package.json 文件，你会发现列出的依赖中加上了 jquery，bootstrap。</p>
-<p><strong> 2、引入 </strong></p>
-<p>打开.angular-cli.json这个文件，可以看到 app 中有个styles数组和scripts数组。<br>“styles”里面存放要引入的css<br>“scripts”里面存放要引入的js</p>
+<h3 id="2、引入"><a href="#2、引入" class="headerlink" title="2、引入"></a>2、引入</h3><p>打开.angular-cli.json这个文件，可以看到 app 中有个styles数组和scripts数组。<br>“styles”里面存放要引入的css<br>“scripts”里面存放要引入的js</p>
 <p>要引入第三方的包，首先要知道引入文件的路径，下载的这些包，会存放在node_modules目录中。找到路径，写入scripts中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&quot;styles&quot;: [</div><div class="line">        &quot;styles.css&quot;,</div><div class="line">        &quot;../node_modules/bootstrap/dist/css/bootstrap.css&quot;</div><div class="line">      ],</div><div class="line">      &quot;scripts&quot;: [</div><div class="line">        &quot;../node_modules/jquery/dist/jquery.js&quot;,</div><div class="line">        &quot;../node_modules/bootstrap/dist/js/bootstrap.js&quot;</div><div class="line">      ],</div></pre></td></tr></table></figure></p>
-<p>** 3、安装类型描述文件 </p>
-<p>因为Angular是使用TypeScript语言开发的，而jquery本质是JavaScript，TypeScript是不能直接使用的。<br>我们需要先安装类型描述文件，让TypeScript认识jquery。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install @types/jquery -–save-dev</div><div class="line">$ npm install @types/bootstrap -–save-dev</div></pre></td></tr></table></figure></p>
-<p><strong> 最后，讲一下，我在安装过程中遇到的巨坑。</strong></p>
+<h3 id="3、安装类型描述文件"><a href="#3、安装类型描述文件" class="headerlink" title="3、安装类型描述文件"></a>3、安装类型描述文件</h3><p>因为Angular是使用TypeScript语言开发的，而jquery本质是JavaScript，TypeScript是不能直接使用的。<br>我们需要先安装类型描述文件，让TypeScript认识jquery。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install @types/jquery -–save-dev</div><div class="line">$ npm install @types/bootstrap -–save-dev</div></pre></td></tr></table></figure></p>
+<h3 id="4、小结"><a href="#4、小结" class="headerlink" title="4、小结"></a>4、小结</h3><p><strong> 最后，讲一下，我在安装过程中遇到的巨坑。</strong></p>
 <p>安装完 jquery类型描述文件之后 ，运行一直报错，江山一片红，出现如下提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">ERROR in C:/Users/yanling.zhong/data-center/node_modules/@types/bootstrap/index.</div><div class="line">d.ts (114,32): Generic type &apos;JQuery&lt;TElement, HTMLElement&gt;&apos; requires 2 type argu</div><div class="line">ment(s).</div><div class="line"></div><div class="line">ERROR in C:/Users/yanling.zhong/data-center/node_modules/@types/bootstrap/index.</div><div class="line">d.ts (116,42): Generic type &apos;JQuery&lt;TElement, HTMLElement&gt;&apos; requires 2 type argu</div><div class="line">ment(s).</div><div class="line"></div><div class="line">ERROR in C:/Users/yanling.zhong/data-center/node_modules/@types/bootstrap/index.</div><div class="line">d.ts (117,32): Generic type &apos;JQuery&lt;TElement, HTMLElement&gt;&apos; requires 2 type argu</div><div class="line">ment(s).</div><div class="line"></div><div class="line">ERROR in C:/Users/yanling.zhong/data-center/node_modules/@types/bootstrap/index.</div><div class="line">d.ts (119,44): Generic type &apos;JQuery&lt;TElement, HTMLElement&gt;&apos; requires 2 type argu</div><div class="line">ment(s).</div><div class="line"></div><div class="line">ERROR in C:/Users/yanling.zhong/data-center/node_modules/@types/bootstrap/index.</div><div class="line">d.ts (121,36): Generic type &apos;JQuery&lt;TElement, HTMLElement&gt;&apos; requires 2 type argu</div><div class="line">ment(s).</div></pre></td></tr></table></figure></p>
 <p>找了很久发现是 @types/jquery 的版本问题，默认安装的是3.2.6版本。<br>现在安装2.0.39版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install @types/jquery@2.0.39 -–save-dev</div></pre></td></tr></table></figure></p>
 <p>再运行，没有问题了。</p>
@@ -436,14 +433,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -456,15 +445,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Marckdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Angular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,15 +469,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Marckdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">性能</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
             
             <div class="clearfix"></div>

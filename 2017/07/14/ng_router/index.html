@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/7 | 前端小生活</title>
+  <title>Angular 路由以及路由分离 | 前端小生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术改变生活,分享沉淀自我">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端小生活">
-<meta property="og:url" content="http://yoursite.com/archives/2017/07/page/3/index.html">
+  <meta name="description" content="我们要使用 Angular 路由器进行导航，改变页面内容。下面我们来看Angular路由的使用方法：
+1、base href打开index.html，确保它的head区顶部有一个 base href=”…”元素12&amp;lt;head&amp;gt;  &amp;lt;base href=&amp;quot;/&amp;quot;&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular 路由以及路由分离">
+<meta property="og:url" content="http://yoursite.com/2017/07/14/ng_router/index.html">
 <meta property="og:site_name" content="前端小生活">
-<meta property="og:description" content="技术改变生活,分享沉淀自我">
+<meta property="og:description" content="我们要使用 Angular 路由器进行导航，改变页面内容。下面我们来看Angular路由的使用方法：
+1、base href打开index.html，确保它的head区顶部有一个 base href=”…”元素12&amp;lt;head&amp;gt;  &amp;lt;base href=&amp;quot;/&amp;quot;&amp;gt;">
+<meta property="og:updated_time" content="2017-07-14T08:27:06.659Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端小生活">
-<meta name="twitter:description" content="技术改变生活,分享沉淀自我">
+<meta name="twitter:title" content="Angular 路由以及路由分离">
+<meta name="twitter:description" content="我们要使用 Angular 路由器进行导航，改变页面内容。下面我们来看Angular路由的使用方法：
+1、base href打开index.html，确保它的head区顶部有一个 base href=”…”元素12&amp;lt;head&amp;gt;  &amp;lt;base href=&amp;quot;/&amp;quot;&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="前端小生活" type="application/atom+xml">
   
@@ -156,407 +160,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ng_router" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Angular 路由以及路由分离
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/07/14/ng_router/" class="archive-article-date">
+  	<time datetime="2017-07-14T07:47:49.881Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-14</time>
+</a>
+        
+      </header>
     
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们要使用 Angular 路由器进行导航，改变页面内容。下面我们来看Angular路由的使用方法：</p>
+<h3 id="1、base-href"><a href="#1、base-href" class="headerlink" title="1、base href"></a>1、base href</h3><p>打开index.html，确保它的head区顶部有一个 base href=”…”元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">  &lt;base href=&quot;/&quot;&gt;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="2、配置路由"><a href="#2、配置路由" class="headerlink" title="2、配置路由"></a>2、配置路由</h3><p>在src/app/app.module.ts中引入RouterModule,再定义和配置路由数组。这里以 heroes 定义路由为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import &#123; RouterModule &#125; from &apos;@angular/router&apos;;</div><div class="line"></div><div class="line"> imports: [</div><div class="line">    RouterModule.forRoot([</div><div class="line">      &#123;</div><div class="line">        path: &apos;heroes&apos;,</div><div class="line">        component: HeroesComponent</div><div class="line">      &#125;</div><div class="line">    ])</div><div class="line">  ],</div></pre></td></tr></table></figure>
+<p>路由定义包括以下部分：<br>Path: 路由器会用它来匹配浏览器地址栏中的地址，如heroes。<br>Component: 导航到此路由时，路由器需要创建的组件（HeroesComponent）。</p>
+<h3 id="3、路由插座"><a href="#3、路由插座" class="headerlink" title="3、路由插座"></a>3、路由插座</h3><p>在浏览器输入<a href="http://localhost:4200/heroes，路由是还没有效果的，需要一个路由出口。" target="_blank" rel="external">http://localhost:4200/heroes，路由是还没有效果的，需要一个路由出口。</a><br>下面我们在src\app\app.component.html的末尾加上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;</div></pre></td></tr></table></figure></p>
+<p>重新查看<a href="http://localhost:4200/heroes，你会发现页面上显示出了" target="_blank" rel="external">http://localhost:4200/heroes，你会发现页面上显示出了</a> HeroesComponent组件的内容。</p>
+<h3 id="4、通配路由"><a href="#4、通配路由" class="headerlink" title="4、通配路由"></a>4、通配路由</h3><p>如果输入一个无效的路由地址，页面是不会有效果的。这个时候我们可以新建一个404组件，所有无效的路由地址都显示该组件。<br>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    path: &apos;**&apos;,</div><div class="line">    component: Code404Component</div><div class="line">  &#125;,</div></pre></td></tr></table></figure></p>
+<p><strong>　注意，通配路由要放在路由配置项的最后面。</strong></p>
+<h3 id="5、路由分离"><a href="#5、路由分离" class="headerlink" title="5、路由分离"></a>5、路由分离</h3><p>目前路由已经可以用起来了，但是还有个小问题，就是直接在app.modules.ts中定义路径并不是很好的方式，因为随着路径定义的复杂，这部分最好还是用单独的文件来定义。<br>现在，新建文件src\app\app-routing.module.ts，将上面在app.modules.ts中定义的路由删除并在app.routes.ts中重新定义：<br>src\app\app-routing.module.ts文件内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">import &#123;NgModule&#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123;RouterModule, Routes&#125; from &apos;@angular/router&apos;;</div><div class="line"></div><div class="line">import &#123; HeroesComponent &#125; from &apos;./heroes.component&apos;;</div><div class="line">import &#123; Code404Component &#125; from &apos;./code404/code404.component&apos;;</div><div class="line">export const routes: Routes = [</div><div class="line">  &#123;</div><div class="line">  &#123;</div><div class="line">    path: &apos;heroes&apos;,</div><div class="line">    component: HeroesComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &apos;**&apos;,</div><div class="line">    component: Code404Component</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">];</div><div class="line">@NgModule(&#123;</div><div class="line">  imports: [RouterModule.forRoot(routes)],</div><div class="line">  exports: [RouterModule],</div><div class="line">  providers: []</div><div class="line">&#125;)</div><div class="line">export class AppRoutingModule &#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来，在app.modules.ts中引入AppRoutingModule.<br>现在，app.modules.ts的内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;</div><div class="line">import &#123; NgModule &#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; FormsModule &#125; from &apos;@angular/forms&apos;;</div><div class="line">import &#123; HttpModule &#125; from &apos;@angular/http&apos;;</div><div class="line">import &#123; CommonModule &#125; from &apos;@angular/common&apos;;</div><div class="line"></div><div class="line">import &#123;AppRoutingModule&#125; from &apos;./app-routing.module&apos;; // 引用路由主文件</div><div class="line">import &#123; AppComponent &#125; from &apos;./app.component&apos;;</div><div class="line">import &#123; HeroesComponent &#125; from &apos;./heroes.component&apos;;</div><div class="line">import &#123; Code404Component &#125; from &apos;./code404/code404.component&apos;;</div><div class="line"></div><div class="line">@NgModule(&#123;</div><div class="line">  declarations: [</div><div class="line">    // 模块中有什么东西，只能声明组件，指令，管道</div><div class="line">    AppComponent,</div><div class="line">    HeroesComponent,</div><div class="line">    Code404Component</div><div class="line">  ],</div><div class="line">  imports: [</div><div class="line">    // app模块依赖的东西</div><div class="line">    BrowserModule,</div><div class="line">    FormsModule,</div><div class="line">    HttpModule,</div><div class="line">    CommonModule,</div><div class="line">    AppRoutingModule</div><div class="line">  ],</div><div class="line">  providers: [],</div><div class="line">  bootstrap: [</div><div class="line">    // 模块的主组件，</div><div class="line">    AppComponent</div><div class="line">  ],</div><div class="line">&#125;)</div><div class="line">export class AppModule &#123; &#125;</div></pre></td></tr></table></figure></p>
+<p>这样两个文件分开是不是更加的清晰明了，方便后面的维护。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://oi5lhmcye.bkt.clouddn.com/01.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/js_template/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.570Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/js_template/">Javascript 模板引擎</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/14/ng_router/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/js_event/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.568Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/js_event/">js事件委托</a>
-    </h1>
+  
+    <a href="/2017/07/12/wxxq/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开发微信小程序中所遇到的问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ng_router" data-title="Angular 路由以及路由分离" data-url="http://yoursite.com/2017/07/14/ng_router/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/js_division/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.567Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/js_division/">js运算出现多位小数问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/js_decode/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.566Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/js_decode/">encodeURl()加号变空格问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/js_closure/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.565Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/js_closure/">Javascript闭包</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/hexo/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.564Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/hexo/">Hexo+Github 搭建博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/gulp/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.563Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/gulp/">构建工具gulp的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gulp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/git_checkout/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.563Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/git_checkout/">git撤销操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/git/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.562Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/git/">一张图读懂 git远程操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/flexbox/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.559Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/flexbox/">Flex 布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/07/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2017/07/">1</a><a class="page-number" href="/archives/2017/07/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2017/07/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/07/page/4/">Next &raquo;</a>
-    </nav>
-  
-
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
 
           </div>
         </div>
@@ -578,8 +367,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
