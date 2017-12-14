@@ -158,6 +158,296 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ng_zhiling" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/ng_zhiling/">Angular 数据绑定与常用指令</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/11/09/ng_zhiling/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.957Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>Angular 数据绑定使用了大量的括号。可以根据数据流动方式分为三种数据绑定，分别是：<br>1、单向：从数据到视图方向（属性绑定，模板插值）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 模板插值用 &#123;&#123;&#125;&#125;</div><div class="line">&lt;p&gt;&#123;&#123;studentId&#125;&#125;&lt;/p&gt; </div><div class="line">//属性绑定用 []</div><div class="line">&lt;div [title]=&quot;name&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>2、单向：从视图到数据方向（事件绑定)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 事件绑定用()</div><div class="line">&lt;div (click)=&quot;getId()&quot;&gt;&lt;/div&gt;&gt;</div></pre></td></tr></table></figure></p>
+<p>3、双向绑定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> // 双向绑定用[()]</div><div class="line">&lt;div [(title)]=&quot;name&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、NgClass<br>通过NgClass可以同时添加或移出多个类，NgClass的第一个参数为css类名称，第二个参数为布尔类型的数据值value。当value为true时则添加对应的类名到模板元素中，反之则移除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//基本用法</div><div class="line">&lt;div [ngClass]=&quot;&#123;&apos;text-success&apos;:true&#125;&quot;&gt;&lt;/&lt;div&gt; </div><div class="line">//判断</div><div class="line">&lt;div [ngClass]=&quot;&#123;&apos;text-success&apos;:username == &apos;anne&apos;&#125;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>2、NgStyle<br>可以给模板元素设置单一元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//基本用法</div><div class="line">&lt;div [ngStyle]=&quot;&#123;&apos;background-color&apos;:&apos;green&apos;&#125;&quot;&gt;&lt;/&lt;div&gt;  </div><div class="line">//判断添加</div><div class="line">&lt;div [ngStyle]=&quot;&#123;&apos;background-color&apos;:username === &apos;zxc&apos; ? &apos;green&apos; : &apos;red&apos; &#125;&quot;&gt;&lt;/&lt;div&gt;</div></pre></td></tr></table></figure></p>
+<p>3、NgIf<br>NgIf指令绑定一个布尔类型的表达式，当表达式返回true时，可以在DOM树节点上添加一个元素及其子元素，反之将其移除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div *ngIf=&quot;count===0&quot;&gt;&lt;/&lt;div&gt;</div></pre></td></tr></table></figure></p>
+<p>4、NgSwitch<br>NgSwitch指令需要结合NgSwitchCase和NgSwitchDefault指令来使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div [ngSwitch]=&quot;state&quot;&gt;</div><div class="line">    &lt;template *ngSwitchCase=&quot;&apos;state1&apos;&quot;&gt;State1&lt;/template&gt;</div><div class="line">    &lt;template *ngSwitchCase=&quot;&apos;state2&apos;&quot;&gt;State2&lt;/template&gt;</div><div class="line">    &lt;template *ngSwitchCase=&quot;&apos;state3&apos;&quot;&gt;State3&lt;/template&gt;</div><div class="line">    &lt;template *ngSwitchDefault&gt;default&lt;/template&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>5、NgFor<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li *ngFor=&quot;let listItem of lists&quot;&gt;&#123;&#123;listItem.name&#125;&#125;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/ng_zhiling/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
+    <article id="post-ng_start" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/ng_start/">Angular 启动过程</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/09/28/ng_start/" class="archive-article-date">
+  	<time datetime="2017-09-28T08:43:00.743Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在前面有一片博客中写到 用Angular Cli 构建 Angular 项目，那接着这里来了解下Angular项目的启动过程。</p>
+<p>项目启动主要通过../src下的两个文件，main.ts 和index.html。<br>
+        
+          <a class="article-more-a" href="/2017/09/28/ng_start/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/28/ng_start/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
+    <article id="post-ng_about" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/ng_about/">Angular2 概要</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/09/28/ng_about/" class="archive-article-date">
+  	<time datetime="2017-09-28T08:14:14.331Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、Angular2-0的诞生"><a href="#一、Angular2-0的诞生" class="headerlink" title="一、Angular2.0的诞生"></a>一、Angular2.0的诞生</h3><p>AngularJs1.X的困境：<br>1、性能问题，采用脏检查实现数据更新，当页面的数据越来越多，脏检查的效率就会越来越低。<br>2、落后于当前的web发展理念。<br>3、对手机端支持不够友好，Angular1.x没有针对移动 应用特别优化，并且缺少一些关键的特性，需要依赖IONIC移动app开发框架。<br>
+        
+          <a class="article-more-a" href="/2017/09/28/ng_about/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/28/ng_about/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
+    <article id="post-es6_template_string" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/es6_template_string/">ES6 模板字符串</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/09/28/es6_template_string/" class="archive-article-date">
+  	<time datetime="2017-09-28T03:16:14.226Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、认识反引号"><a href="#一、认识反引号" class="headerlink" title="一、认识反引号"></a>一、认识反引号</h3><p>在传统的JavaScript输出模板通常是这样写的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&apos;#result&apos;).append(</div><div class="line">  &apos;There are &lt;b&gt;&apos; + basket.count + &apos;&lt;/b&gt; &apos; +</div><div class="line">  &apos;items in your basket, &apos; +</div><div class="line">  &apos;&lt;em&gt;&apos; + basket.onSale +</div><div class="line">  &apos;&lt;/em&gt; are on sale!&apos;</div><div class="line">);</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/09/28/es6_template_string/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/28/es6_template_string/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
     <article id="post-ng_router" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -596,305 +886,6 @@
 <!-- 目录内容结束 -->
 
   
-    <article id="post-vue_project" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/vue_project/">一个简单的 Vue实践 项目</a>
-    </h1>
-  
-
-           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
-         阅读 <span id="busuanzi_value_page_pv"></span>次
-          </span>
-        
-        <a href="/2017/07/12/vue_project/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.595Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="本文的主要内容如下："><a href="#本文的主要内容如下：" class="headerlink" title="本文的主要内容如下："></a>本文的主要内容如下：</h3><blockquote>
-<ul>
-<li>安装插件</li>
-<li>组件的结构</li>
-<li>组件的应用</li>
-<li>路由的应用</li>
-<li>用mock.js模拟数据</li>
-<li>编译</li>
-</ul>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/07/12/vue_project/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/vue_project/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- 目录内容 -->
-     
-<!-- 目录内容结束 -->
-
-  
-    <article id="post-vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/vue/">vue-cli构建vue项目</a>
-    </h1>
-  
-
-           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
-         阅读 <span id="busuanzi_value_page_pv"></span>次
-          </span>
-        
-        <a href="/2017/07/12/vue/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.593Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p><strong> 1. 安装node.js </strong></p>
-<p><strong> 2.安装vue-cli </strong><br>npm install -g vue-cli<br>
-        
-          <a class="article-more-a" href="/2017/07/12/vue/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/vue/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- 目录内容 -->
-     
-<!-- 目录内容结束 -->
-
-  
-    <article id="post-static_html" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/static_html/">整理几点编辑静态页面的 整体思路和技巧</a>
-    </h1>
-  
-
-           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
-         阅读 <span id="busuanzi_value_page_pv"></span>次
-          </span>
-        
-        <a href="/2017/07/12/static_html/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.588Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、  先写大体框架，分区域</p>
-<p>2、  Ps，F2选取图层当前大小</p>
-<p>3、  切图，转化为智能对象，双击</p>
-        
-          <a class="article-more-a" href="/2017/07/12/static_html/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/static_html/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- 目录内容 -->
-     
-<!-- 目录内容结束 -->
-
-  
-    <article id="post-php_sass02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/php_sass02/">phpstorm 7.0结合 file watchers sass/scss自动编译</a>
-    </h1>
-  
-
-           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
-         阅读 <span id="busuanzi_value_page_pv"></span>次
-          </span>
-        
-        <a href="/2017/07/12/php_sass02/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.587Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.ctrl+alt+s，调出settings，搜索 File Watchers，添加SCSS</p>
-<p>2.设置可以看下图，要注意的是 [Program] 最好指定具体目录,用环境变量 $RUBY_HOME$\scss.bat,会出错</p>
-<p>3.Arguments 就是写上sass/scss支持的 语法 例如 –style compressed test.sass test.css,</p>
-<p>上图的配置是scss源目录+css生成目录，如下：</p>
-<p>–style expanded $FileDir$\$FileName$ $FileParentDir$\css\$FileNameWithoutExtension$.css</p>
-<p><img src="/uploads/php/sass_07.jpg" alt="sass_07"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/php_sass02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- 目录内容 -->
-     
-<!-- 目录内容结束 -->
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -984,15 +975,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1000,15 +987,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Marckdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1020,15 +1015,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Marckdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -9,31 +9,31 @@
   <title>Angular Cli 构建 Angular 项目 | 前端小生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、环境搭建 基础工具安装 
-NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。
- 安装Angular Cli 有两种方式安装：
+NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。目前我用的是（node.js  6.10.3, npm 3.10.10）
+ 安装Angular Cli 有两种方式安装：强烈建议使用npm安装@angular/cli，不推荐使用淘宝镜像cnpm来安装。
 
-第一种安装方式，通过淘宝镜像，这种安装会比较快速。
-12$ npm install -g cnpm --registry=https://registry.npm.taobao.org   //先安装cpm$ cnpm install -g">
+第一种安装方式，通过淘宝镜像。
+12$ npm install -g cnpm --re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular Cli 构建 Angular 项目">
 <meta property="og:url" content="http://yoursite.com/2017/07/12/ng/index.html">
 <meta property="og:site_name" content="前端小生活">
 <meta property="og:description" content="一、环境搭建 基础工具安装 
-NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。
- 安装Angular Cli 有两种方式安装：
+NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。目前我用的是（node.js  6.10.3, npm 3.10.10）
+ 安装Angular Cli 有两种方式安装：强烈建议使用npm安装@angular/cli，不推荐使用淘宝镜像cnpm来安装。
 
-第一种安装方式，通过淘宝镜像，这种安装会比较快速。
-12$ npm install -g cnpm --registry=https://registry.npm.taobao.org   //先安装cpm$ cnpm install -g">
+第一种安装方式，通过淘宝镜像。
+12$ npm install -g cnpm --re">
 <meta property="og:image" content="http://yoursite.com/uploads/an.png">
-<meta property="og:updated_time" content="2017-07-11T02:50:56.405Z">
+<meta property="og:updated_time" content="2017-09-28T09:22:43.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular Cli 构建 Angular 项目">
 <meta name="twitter:description" content="一、环境搭建 基础工具安装 
-NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。
- 安装Angular Cli 有两种方式安装：
+NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。目前我用的是（node.js  6.10.3, npm 3.10.10）
+ 安装Angular Cli 有两种方式安装：强烈建议使用npm安装@angular/cli，不推荐使用淘宝镜像cnpm来安装。
 
-第一种安装方式，通过淘宝镜像，这种安装会比较快速。
-12$ npm install -g cnpm --registry=https://registry.npm.taobao.org   //先安装cpm$ cnpm install -g">
+第一种安装方式，通过淘宝镜像。
+12$ npm install -g cnpm --re">
 <meta name="twitter:image" content="http://yoursite.com/uploads/an.png">
   
     <link rel="alternative" href="/atom.xml" title="前端小生活" type="application/atom+xml">
@@ -199,18 +199,18 @@ NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="一、环境搭建"><a href="#一、环境搭建" class="headerlink" title="一、环境搭建"></a>一、环境搭建</h3><p><strong> 基础工具安装 </strong></p>
-<p>NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。</p>
-<p><strong> 安装Angular Cli </strong><br>有两种方式安装：</p>
+<p>NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。<br>目前我用的是（node.js  6.10.3, npm 3.10.10）</p>
+<p><strong> 安装Angular Cli </strong><br>有两种方式安装：<br>强烈建议使用npm安装@angular/cli，不推荐使用淘宝镜像cnpm来安装。</p>
 <ol>
-<li><p>第一种安装方式，通过淘宝镜像，这种安装会比较快速。</p>
+<li><p>第一种安装方式，通过淘宝镜像。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org   //先安装cpm</div><div class="line">$ cnpm install -g @angular/cli   //用cnpm安装 Angular Cli</div></pre></td></tr></table></figure>
 </li>
 <li><p>第二种安装方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g angular-cli</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g @angular/cli@latest</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <a id="more"></a>
-<p><strong> 注意事项 </strong><br>如果之前安装失败一定要卸载干净。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm uninstall -g angular-cli</div><div class="line">$ npm cache clean</div></pre></td></tr></table></figure></p>
+<p><strong> 注意事项 </strong><br>angular cli 安装失败，或是之前安装过，现在需要升级，一定要先卸载再重新安装。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm uninstall -g @angular/cli</div><div class="line">$ npm cache clean</div></pre></td></tr></table></figure></p>
 <p>找到 C:\Users\Administrator\AppData\Roaming\npm ，把ng和ng.cmd也删除</p>
 <p><strong> 测试 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ng -v</div></pre></td></tr></table></figure></p>
 <p>显示版本信息，表示安装成功</p>
@@ -468,15 +468,11 @@ NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,15 +480,23 @@ NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Marckdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,15 +508,11 @@ NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Marckdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
