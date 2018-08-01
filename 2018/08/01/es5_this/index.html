@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>双向绑定的优缺点 | 前端小生活</title>
+  <title>关于 this | 前端小生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单向数据绑定：指的是我们先把模板写好，然后把模板和数据（数据可能来自后台）整合到一起形成HTML代码，然后把这段HTML代码插入到文档流里面。缺点：单向数据绑定缺点：HTML代码一旦生成完以后，就没有办法再变了，如果有新的数据来了，那就必须把之前的HTML代码去掉，再重新把新的数据和模板一起整合后插入到文档流中。优点：单向数据流　数据流动方向可以跟踪，流动单一，追查问题的时候可以跟快捷。
-双向数据">
+  <meta name="description" content="1、this最终指向的是调用它的对象  2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象  3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];
+12345678910">
 <meta property="og:type" content="article">
-<meta property="og:title" content="双向绑定的优缺点">
-<meta property="og:url" content="http://yoursite.com/2017/11/09/model_youdian/index.html">
+<meta property="og:title" content="关于 this">
+<meta property="og:url" content="http://yoursite.com/2018/08/01/es5_this/index.html">
 <meta property="og:site_name" content="前端小生活">
-<meta property="og:description" content="单向数据绑定：指的是我们先把模板写好，然后把模板和数据（数据可能来自后台）整合到一起形成HTML代码，然后把这段HTML代码插入到文档流里面。缺点：单向数据绑定缺点：HTML代码一旦生成完以后，就没有办法再变了，如果有新的数据来了，那就必须把之前的HTML代码去掉，再重新把新的数据和模板一起整合后插入到文档流中。优点：单向数据流　数据流动方向可以跟踪，流动单一，追查问题的时候可以跟快捷。
-双向数据">
-<meta property="og:updated_time" content="2017-03-23T08:45:17.389Z">
+<meta property="og:description" content="1、this最终指向的是调用它的对象  2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象  3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];
+12345678910">
+<meta property="og:updated_time" content="2018-08-01T13:08:16.056Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="双向绑定的优缺点">
-<meta name="twitter:description" content="单向数据绑定：指的是我们先把模板写好，然后把模板和数据（数据可能来自后台）整合到一起形成HTML代码，然后把这段HTML代码插入到文档流里面。缺点：单向数据绑定缺点：HTML代码一旦生成完以后，就没有办法再变了，如果有新的数据来了，那就必须把之前的HTML代码去掉，再重新把新的数据和模板一起整合后插入到文档流中。优点：单向数据流　数据流动方向可以跟踪，流动单一，追查问题的时候可以跟快捷。
-双向数据">
+<meta name="twitter:title" content="关于 this">
+<meta name="twitter:description" content="1、this最终指向的是调用它的对象  2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象  3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];
+12345678910">
   
     <link rel="alternative" href="/atom.xml" title="前端小生活" type="application/atom+xml">
   
@@ -160,14 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-model_youdian" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-es5_this" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      双向绑定的优缺点
+      关于 this
     </h1>
   
 
@@ -175,8 +175,8 @@
          阅读 <span id="busuanzi_value_page_pv"></span>次
           </span>
         
-        <a href="/2017/11/09/model_youdian/" class="archive-article-date">
-  	<time datetime="2017-11-09T07:53:23.924Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+        <a href="/2018/08/01/es5_this/" class="archive-article-date">
+  	<time datetime="2018-08-01T12:44:12.770Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
 </a>
         
       </header>
@@ -184,9 +184,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>单向数据绑定：</strong><br>指的是我们先把模板写好，然后把模板和数据（数据可能来自后台）整合到一起形成HTML代码，然后把这段HTML代码插入到文档流里面。缺点：单向数据绑定缺点：HTML代码一旦生成完以后，就没有办法再变了，如果有新的数据来了，那就必须把之前的HTML代码去掉，再重新把新的数据和模板一起整合后插入到文档流中。<br>优点：单向数据流　数据流动方向可以跟踪，流动单一，追查问题的时候可以跟快捷。</p>
-<p><strong>双向数据绑定：</strong><br>数据模型（Module）和视图（View）之间的双向绑定。<br>缺点：各种数据相互依赖相互绑定，导致数据问题的源头难以被跟踪到，不利于管理数据源。<br>优点:双向数据绑定最经常的应用场景就是表单了，这样当用户在前端页面完成输入后，不用任何操作，我们就已经拿到了用户的数据存放到数据模型中了。</p>
-
+        <p><strong> 1、this最终指向的是调用它的对象 </strong><br><strong> 2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象 </strong><br><strong> 3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 </strong><br><strong>box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">//示例一</div><div class="line">function a()&#123;</div><div class="line">    var user = &quot;yanzi&quot;;</div><div class="line">    console.log(this.user)  //undefined</div><div class="line">    console.log(this)  //Window</div><div class="line">&#125;</div><div class="line">window.a();</div><div class="line"></div><div class="line">//示例二</div><div class="line">var o = &#123;</div><div class="line">    a: 10,</div><div class="line">    b: &#123;</div><div class="line">        a: 12,</div><div class="line">        fn: function()&#123;</div><div class="line">            console.log(this.a)  // 12</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> o.b.fn();</div><div class="line"></div><div class="line"> //示例三</div><div class="line"> function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return function()&#123;&#125;;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user); //undefined</div><div class="line"> </div><div class="line"> //示例四</div><div class="line">  function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return 1;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user);  //yanzi</div></pre></td></tr></table></figure>
       
 
       
@@ -220,6 +219,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -270,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/09/model_youdian/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/08/01/es5_this/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +294,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/09/mvc/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MVC和MVVM
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/09/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Markdown 语法的简要规则</div>
+    <a href="/2018/07/09/about_css3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS3基础笔记整理（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -309,7 +310,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="model_youdian" data-title="双向绑定的优缺点" data-url="http://yoursite.com/2017/11/09/model_youdian/"></div>
+	<div class="ds-thread" data-thread-key="es5_this" data-title="关于 this" data-url="http://yoursite.com/2018/08/01/es5_this/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
