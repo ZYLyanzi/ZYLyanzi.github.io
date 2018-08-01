@@ -4,77 +4,109 @@
   
     
     <entry>
-      <title><![CDATA[Angular 数据绑定与常用指令]]></title>
-      <url>http://yoursite.com/2017/11/09/ng_zhiling/</url>
-      <content type="html"><![CDATA[<h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>Angular 数据绑定使用了大量的括号。可以根据数据流动方式分为三种数据绑定，分别是：<br>1、单向：从数据到视图方向（属性绑定，模板插值）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 模板插值用 &#123;&#123;&#125;&#125;</div><div class="line">&lt;p&gt;&#123;&#123;studentId&#125;&#125;&lt;/p&gt; </div><div class="line">//属性绑定用 []</div><div class="line">&lt;div [title]=&quot;name&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>2、单向：从视图到数据方向（事件绑定)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 事件绑定用()</div><div class="line">&lt;div (click)=&quot;getId()&quot;&gt;&lt;/div&gt;&gt;</div></pre></td></tr></table></figure></p>
-<p>3、双向绑定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> // 双向绑定用[()]</div><div class="line">&lt;div [(title)]=&quot;name&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、NgClass<br>通过NgClass可以同时添加或移出多个类，NgClass的第一个参数为css类名称，第二个参数为布尔类型的数据值value。当value为true时则添加对应的类名到模板元素中，反之则移除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//基本用法</div><div class="line">&lt;div [ngClass]=&quot;&#123;&apos;text-success&apos;:true&#125;&quot;&gt;&lt;/&lt;div&gt; </div><div class="line">//判断</div><div class="line">&lt;div [ngClass]=&quot;&#123;&apos;text-success&apos;:username == &apos;anne&apos;&#125;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>2、NgStyle<br>可以给模板元素设置单一元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//基本用法</div><div class="line">&lt;div [ngStyle]=&quot;&#123;&apos;background-color&apos;:&apos;green&apos;&#125;&quot;&gt;&lt;/&lt;div&gt;  </div><div class="line">//判断添加</div><div class="line">&lt;div [ngStyle]=&quot;&#123;&apos;background-color&apos;:username === &apos;zxc&apos; ? &apos;green&apos; : &apos;red&apos; &#125;&quot;&gt;&lt;/&lt;div&gt;</div></pre></td></tr></table></figure></p>
-<p>3、NgIf<br>NgIf指令绑定一个布尔类型的表达式，当表达式返回true时，可以在DOM树节点上添加一个元素及其子元素，反之将其移除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div *ngIf=&quot;count===0&quot;&gt;&lt;/&lt;div&gt;</div></pre></td></tr></table></figure></p>
-<p>4、NgSwitch<br>NgSwitch指令需要结合NgSwitchCase和NgSwitchDefault指令来使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div [ngSwitch]=&quot;state&quot;&gt;</div><div class="line">    &lt;template *ngSwitchCase=&quot;&apos;state1&apos;&quot;&gt;State1&lt;/template&gt;</div><div class="line">    &lt;template *ngSwitchCase=&quot;&apos;state2&apos;&quot;&gt;State2&lt;/template&gt;</div><div class="line">    &lt;template *ngSwitchCase=&quot;&apos;state3&apos;&quot;&gt;State3&lt;/template&gt;</div><div class="line">    &lt;template *ngSwitchDefault&gt;default&lt;/template&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>5、NgFor<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li *ngFor=&quot;let listItem of lists&quot;&gt;&#123;&#123;listItem.name&#125;&#125;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+      <title></title>
+      <url>http://yoursite.com/2018/07/13/code/</url>
+      <content type="html"><![CDATA[window.addEventListener("deviceorientation", function(event){
+	// 处理 event.alpha、event.beta、event.gamma
+}, true);
+window.addEventListener("compassneedscalibration", function(event){
+	alert('您的罗盘需要校准');
+	event.preventDefault();
+}, true);
+window.addEventListener("devicemotion", function(event){
+	// 处理event.acceleration
+	// x(y,z): 设备在x(y,z)方向上的移动加速度值
+	// event.accelerationIncludingGravity
+	// 考虑了重力加速度后设备在x(y,z)
+	// event.rotationRate
+	// alpha, beta, gamma: 设备绕x，y，z轴旋转的角度
+}, true);
+// 简单的摇一摇触发代码
+var speed = 30; // speed
+var x = y = z = lastX = lastY = lastZ = 0;
+function deviceMotionHandler(eventData) {
+	var acceleration = event.accelerationIncludingGravity;
+	x = acceleration.x;
+	y = acceleration.y;
+	z = acceleration.z;
+
+	//记录上一次设备在x,y,z方向上的加速度
+	if ((!lastX) && (!lastY) && (!lastZ)) {
+		lastX = acceleration.x;
+		lastY = acceleration.y;
+		lastZ = acceleration.z;
+		return;
+	}
+
+	if (Math.abs(x-lastX) > speed || Math.abs(y-lastY) > speed || Math.abs(z-lastZ) > speed ){
+		// 简单摇一摇触发代码
+		alert(1);
+	}
+}]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS3基础笔记整理（一）]]></title>
+      <url>http://yoursite.com/2018/07/09/about_css3/</url>
+      <content type="html"><![CDATA[<h3 id="一、边框"><a href="#一、边框" class="headerlink" title="一、边框"></a>一、边框</h3><p><strong> 1、圆角 border-radius：</strong><br><strong> 2、阴影 box-shadow：</strong><br><strong>box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</strong></p>
+<p>X轴偏移量：必填，水平阴影位置，允许负值。<br>Y轴偏移量：必填，垂直阴影位置，允许负值。<br>阴影模糊半径：可选， 模糊距离， 只能是正值。<br>阴影扩展半径：可选， 扩展尺寸。<br>阴影颜色：可选，省略默认黑色。<br>投影方式：可选，设置 inset时为内部阴影，省略为外部阴影。  </p>
+<p><strong> 3、边框应用图片 border-image：</strong></p>
+<h3 id="二、颜色"><a href="#二、颜色" class="headerlink" title="二、颜色"></a>二、颜色</h3><p><strong> 1、RGBA：</strong><br>RGB是一种色彩标准，是由红(R)、绿(G)、蓝(B)的变化以及相互叠加来得到各式各样的颜色。RGBA是在RGB的基础上增加了控制alpha透明度的参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-color:rgba(100,120,60,0.5);</div></pre></td></tr></table></figure></p>
+<h4 id="2、-渐变："><a href="#2、-渐变：" class="headerlink" title="2、 渐变："></a>2、 渐变：</h4><p>CSS3 Gradient 分为线性渐变(linear)和径向渐变(radial)。<br>linear-gradient(渐变方向, 颜色起始点和结束点、可以有两个至多个色值…)<br><img src="/uploads/css3/jianbian.jpg" alt="04"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo,violet);</div></pre></td></tr></table></figure></p>
+<h3 id="三、文字"><a href="#三、文字" class="headerlink" title="三、文字"></a>三、文字</h3><p><strong> 1、text-overflow 与 word-wrap：</strong></p>
+<p>text-overflow用来设置是否使用一个省略标记（…）标示对象内文本的溢出。<br>word-wrap也可以用来设置文本行为，当前行超过指定容器的边界时是否断开转行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">text-overflow：clip（剪切）| ellipsis （省略标记）</div><div class="line">word-wrap：normal (控制连续文本换行) | break-world （边界内换行）</div></pre></td></tr></table></figure></p>
+<p><strong> 2、嵌入字体@font-face：</strong><br><strong> 3、文本阴影text-shadow </strong></p>
+<h3 id="四、背景"><a href="#四、背景" class="headerlink" title="四、背景"></a>四、背景</h3><p><strong> 1、background-origin </strong><br>设置元素背景图片的原始起始位置。<br>参数分别表示背景图片是从边框，还是内边距（默认值），或者是内容区域开始显示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-origin ： border-box | padding-box | content-box;</div></pre></td></tr></table></figure></p>
+<p><strong> 2、background-clip </strong><br>用来将背景图片做适当的裁剪以适应实际需要。<br>参数分别表示从边框、或内填充，或者内容区域向外裁剪背景。no-clip表示不裁切，和参数border-box显示同样的效果。backgroud-clip默认值为border-box。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-clip ： border-box | padding-box | content-box | no-clip</div></pre></td></tr></table></figure></p>
+<p><strong> 3、background-size </strong><br>设置背景图片的大小，以长度值或百分比显示，还可以通过cover和contain来对图片进行伸缩。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-size: auto | &lt;长度值&gt; | &lt;百分比&gt; | cover | contain</div></pre></td></tr></table></figure></p>
+<h4 id="4、多重背景"><a href="#4、多重背景" class="headerlink" title="4、多重背景"></a>4、多重背景</h4>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS3基础笔记整理（二）]]></title>
+      <url>http://yoursite.com/2018/07/09/about_css3_2/</url>
+      <content type="html"><![CDATA[<h3 id="五、选择器"><a href="#五、选择器" class="headerlink" title="五、选择器"></a>五、选择器</h3><h4 id="1、属性选择器："><a href="#1、属性选择器：" class="headerlink" title="1、属性选择器："></a>1、属性选择器：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">a[class^=icon]&#123;</div><div class="line">  background: green;</div><div class="line">  color:#fff;</div><div class="line">&#125;</div><div class="line">a[href$=pdf]&#123;</div><div class="line">  background: orange;</div><div class="line">  color: #fff;</div><div class="line">&#125;</div><div class="line">a[title*=more]&#123;</div><div class="line">  background: blue;</div><div class="line">  color: #fff;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong> 2、 结构性伪类选择器—root：</strong><br><code>:root</code>选择器，从字面上我们就可以很清楚的理解是根选择器，他的意思就是匹配元素E所在文档的根元素。在HTML文档中，根元素始终是<code>&lt;html&gt;</code>。</p>
+<p><strong> 3、结构性伪类选择器—not：</strong><br><code>:not</code>选择器称为否定选择器，和jQuery中的:not选择器一模一样，可以选择除某个元素之外的所有元素。</p>
+<p><strong> 4、结构性伪类选择器—empty：</strong><br><code>:empty</code>选择器表示的就是空。用来选择没有任何内容的元素，这里没有内容指的是一点内容都没有，哪怕是一个空格。<br><strong> 5、结构性伪类选择器—first-child：</strong><br><code>:first-child</code>选择器表示的是选择父元素的第一个子元素的元素E。简单点理解就是选择元素中的第一个子元素，记住是子元素，而不是后代元素。<br><strong> 6、结构性伪类选择器—last-child：</strong><br><code>:last-child</code>选择器与<code>:first-child</code>选择器作用类似，不同的是<code>:last-child</code>选择器选择的是元素的最后一个子元素。<br><strong> 7、结构性伪类选择器—nth-child(n)：</strong><br><code>:nth-child(n)</code>选择器用来定位某个父元素的一个或多个特定的子元素。其中<code>n</code>是其参数，而且可以是整数值(1,2,3,4)，也可以是表达式(2n+1、-n+5)和关键词(odd、even)，但参数n的起始值始终是1，而不是0。也就是说，参数n的值为0时，选择器将选择不到任何匹配的元素。<br><strong> 8、结构性伪类选择器—nth-last-child(n) </strong><br><strong> 9、first-of-type选择器 </strong><br><code>:first-of-type</code>选择器类似于<code>:first-child</code>选择器，不同之处就是指定了元素的类型,其主要用来定位一个父元素下的某个类型的第一个子元素。<br><strong> 10、 nth-of-type(n)选择器  </strong><br><code>:nth-of-type(n)</code>选择器和<code>:nth-child(n)</code>选择器非常类似，不同的是它只计算父元素中指定的某种类型的子元素。<br><strong> 11、 last-of-type选择器 </strong><br><code>:last-of-type</code>选择器和<code>:first-of-type</code>选择器功能是一样的，不同的是他选择是父元素下的某个类型的最后一个子元素。<br><strong> 12、nth-last-of-type(n)选择器 </strong><br><strong> 13、only-child选择器 </strong><br><code>:only-child</code>选择器选择的是父元素中只有一个子元素，而且只有唯一的一个子元素。也就是说，匹配的元素的父元素中仅有一个子元素，而且是一个唯一的子元素。<br><strong> 14、 only-of-type选择器 </strong></p>
+<p><strong> 15、 :enabled选择器 </strong><br>在Web的表单中，有些表单元素有可用<code>:enabled</code>和不可用<code>:disabled</code>状态，比如输入框，密码框，复选框等。在默认情况之下，这些表单元素都处在可用状态。那么我们可以通过伪选择器<code>:enabled</code>对这些表单元素设置样式。<br><strong> 16、 :disabled选择器 </strong><br><code>:disabled</code>选择器刚好与<code>:enabled</code>选择器相反，用来选择不可用表单元素。<br><strong> 17、 :checked选择器 </strong><br>在表单元素中，单选按钮和复选按钮都具有选中和未选中状态。而<code>:checked</code>表示的是选中状态。<br><strong> 18、 ::selection选择器 </strong><br><strong> 19、 :read-only选择器 </strong><br><code>:read-only</code>伪类选择器用来指定处于只读状态元素的样式。简单点理解就是，元素中设置了<code>readonly=’readonly’</code>。<br><strong> 20、:read-write选择器 </strong><br><code>:read-write</code>选择器刚好与<code>:read-only</code>选择器相反，主要用来指定当元素处于非只读状态时的样式。<br><strong> 22、 ::before和::after </strong><br><code>::before</code>和<code>::after</code>这两个主要用来给元素的前面或后面插入内容，这两个常和<code>content</code>配合使用，使用的场景最多的就是清除浮动。 </p>
 ]]></content>
     </entry>
     
     <entry>
-      <title><![CDATA[Angular 启动过程]]></title>
-      <url>http://yoursite.com/2017/09/28/ng_start/</url>
-      <content type="html"><![CDATA[<p>在前面有一片博客中写到 用Angular Cli 构建 Angular 项目，那接着这里来了解下Angular项目的启动过程。</p>
-<p>项目启动主要通过../src下的两个文件，main.ts 和index.html。<br><a id="more"></a><br>main.ts加载脚本，负责引导整个Angular应用的起点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 导入enableProdMode用来关闭angular开发者模式</div><div class="line">import &#123; enableProdMode &#125; from &apos;@angular/core&apos;;</div><div class="line">// 负责从angular浏览器模块中导入platformBrowserDynamic这个方法，</div><div class="line">// 这个方法告诉angular使用哪个模块来启动整个应用</div><div class="line">import &#123; platformBrowserDynamic &#125; from &apos;@angular/platform-browser-dynamic&apos;;</div><div class="line">// 整个应用的主模块</div><div class="line">import &#123; AppModule &#125; from &apos;./app/app.module&apos;;</div><div class="line">// angular多环境支持</div><div class="line">import &#123; environment &#125; from &apos;./environments/environment&apos;;</div><div class="line"></div><div class="line">if (environment.production) &#123;</div><div class="line">  // 如果是工厂模式，就启动enableProdMode来关闭开发者模式</div><div class="line">  enableProdMode();</div><div class="line">&#125;</div><div class="line">// 调用bootstrapModule方法来传入AppModule作为启动模块来启动应用。</div><div class="line">platformBrowserDynamic().bootstrapModule(AppModule);</div></pre></td></tr></table></figure></p>
-<p>index.html加载页面，寻找启动模块（AppModule）指定的主组件对应的选择器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">  &lt;title&gt;Mytest&lt;/title&gt;</div><div class="line">  &lt;base href=&quot;/&quot;&gt;</div><div class="line"></div><div class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</div><div class="line">  &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;favicon.ico&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">//appcomponent启动后加载完所有依赖会寻找到index里面的app-root，会根据app-root找到叫app-root的css</div><div class="line">选择器，去加载这个选择器所对应的html内容，在app-root的位置替代aoo-root显示</div><div class="line">  &lt;app-root&gt;&lt;/app-root&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+      <title><![CDATA[关于消除img间的间隙问题]]></title>
+      <url>http://yoursite.com/2018/03/15/css_img/</url>
+      <content type="html"><![CDATA[<p><strong> img标签为什么会有上下间隙呢？</strong><br>原因在于：img标签为inline元素，该元素默认垂直对齐方式为以父元素的baseline，但是展示时又是以bottomline为对齐方式，因此造成了上下两个img标签之间的间隙。有以下四种方案可以解决：</p>
+<p>1、img{ display:block};<br>   将其改变为block元素，但是该方法太过粗暴，相当于从根本上改变了img。<br>2、img{vertical-align:top;}<br>   改变其垂直对齐方式<br>3、div{font-size:0};<br>   把父元素的文字大小设置为0<br>4、div{ margin-bottom:-3px };<br>    这个方法不推荐</p>
 ]]></content>
     </entry>
     
     <entry>
-      <title><![CDATA[Angular2 概要]]></title>
-      <url>http://yoursite.com/2017/09/28/ng_about/</url>
-      <content type="html"><![CDATA[<h3 id="一、Angular2-0的诞生"><a href="#一、Angular2-0的诞生" class="headerlink" title="一、Angular2.0的诞生"></a>一、Angular2.0的诞生</h3><p>AngularJs1.X的困境：<br>1、性能问题，采用脏检查实现数据更新，当页面的数据越来越多，脏检查的效率就会越来越低。<br>2、落后于当前的web发展理念。<br>3、对手机端支持不够友好，Angular1.x没有针对移动 应用特别优化，并且缺少一些关键的特性，需要依赖IONIC移动app开发框架。<br><a id="more"></a><br>Angular2.x的优势:<br>1、移出了controller+$scope设计，改为组件式的开发。<br>2、性能上的优化，渲染更快，变化检测效率更高。<br>3、仿照web后端的结构模式来编写前端，支持模块，类等特性。<br>4、支持原生移动设备开发。<br>5、更加贴合未来的标注，引入了TypeScript。</p>
-<p>注意：现在基本管Angular1.x的版本统称AngularJs，Angular2.x统称Angular。</p>
-<h3 id="二、Angular2-0-的核心模块。"><a href="#二、Angular2-0-的核心模块。" class="headerlink" title="二、Angular2.0 的核心模块。"></a>二、Angular2.0 的核心模块。</h3><p>一个完整的Angular应用主要由六个重要部分构成，分别是：组件、模板、指令、服务、依赖注入和路由。这些组成部分各司其职，而又紧密协作。它们的关系如下图所示：<br><img src="/uploads/ng_model.jpg" alt="ng_model"></p>
+      <title><![CDATA[js Date对象在Safari与IOS中的兼容性问题]]></title>
+      <url>http://yoursite.com/2018/03/15/js_ios/</url>
+      <content type="html"><![CDATA[<p><strong> 最近写个移动端的项目，发现在Android和pc浏览器上都可以运行，但是在ios和Safari上效果没有呈现，最后找到原因是，“Safari与IOS对Date对象的兼容性问题”。</strong></p>
+<p>看下面代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var date =new Date(&quot;2017-12-27 08:00&quot;);</div></pre></td></tr></table></figure></p>
+<p>这段代码是获取字符中的指定日期，但是在Safari上就会报错。不过像下面这样写就不会报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var date =new Date(&quot;2017/12/27 08:00&quot;);</div></pre></td></tr></table></figure></p>
+<p>一般我们的日期格式都是这种“2017-12-27 08:00”，所以我们需要写个函数，替换一下，这样Android和IOS就能共用了呀！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">getDateDiff(time) &#123;</div><div class="line">  //将xxxx-xx-xx的时间格式，转换为 xxxx/xx/xx的格式</div><div class="line">  return time.replace(/\-/g, &quot;/&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 ]]></content>
     </entry>
     
     <entry>
-      <title><![CDATA[ES6 模板字符串]]></title>
-      <url>http://yoursite.com/2017/09/28/es6_template_string/</url>
-      <content type="html"><![CDATA[<h3 id="一、认识反引号"><a href="#一、认识反引号" class="headerlink" title="一、认识反引号"></a>一、认识反引号</h3><p>在传统的JavaScript输出模板通常是这样写的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&apos;#result&apos;).append(</div><div class="line">  &apos;There are &lt;b&gt;&apos; + basket.count + &apos;&lt;/b&gt; &apos; +</div><div class="line">  &apos;items in your basket, &apos; +</div><div class="line">  &apos;&lt;em&gt;&apos; + basket.onSale +</div><div class="line">  &apos;&lt;/em&gt; are on sale!&apos;</div><div class="line">);</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>以上写法繁琐不方便，ES6引入了模板字符串来解决这个问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&apos;#result&apos;).append(`</div><div class="line">  There are &lt;b&gt;$&#123;basket.count&#125;&lt;/b&gt; items</div><div class="line">   in your basket, &lt;em&gt;$&#123;basket.onSale&#125;&lt;/em&gt;</div><div class="line">  are on sale!</div><div class="line">`);</div></pre></td></tr></table></figure></p>
-<p>模板字符串是增强版的字符串。用反引号（`）来标识。</p>
-<h3 id="二、用法"><a href="#二、用法" class="headerlink" title="二、用法"></a>二、用法</h3><p>它可以当做普通字符串使用，也可以用来定义多行字符串，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 普通字符串</div><div class="line">`In JavaScript &apos;\n&apos; is a line-feed.`</div><div class="line"></div><div class="line">// 多行字符串</div><div class="line">`In JavaScript this is</div><div class="line">not legal.`</div><div class="line"></div><div class="line">// 字符串中嵌入变量</div><div class="line">var name = &quot;Bob&quot;, time = &quot;today&quot;;</div><div class="line">`Hello $&#123;name&#125;, how are you $&#123;time&#125;?`  // Hello Bob, how are you today?</div></pre></td></tr></table></figure></p>
-<p><strong>注意:</strong><br>1、在模板字符串两端都使用了反引号，而如果在模板字符串中间需要使用反引号，则需要在其前面使用反斜杠转义。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var greeting = `\`Yo\` World!`; // `Yo` World!</div></pre></td></tr></table></figure></p>
-<p>3、在模板字符串中嵌入变量，需要将变量名写在 ${}中。{} 内可以放入任意的JavaScript·表达式，可以进行运算，已经引用对象属性，模板字符串中还能调用函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var x = 1, y = 2;</div><div class="line"></div><div class="line">`$&#123;x&#125; + $&#123;y&#125; = $&#123;x + y&#125;`;</div><div class="line">// &quot;1 + 2 = 3&quot;</div><div class="line"></div><div class="line">`$&#123;x&#125; + $&#123;y * 2&#125; = $&#123;x + y * 2&#125;`;</div><div class="line">// &quot;1 + 4 = 5&quot;</div><div class="line"></div><div class="line">var obj = &#123;x: 1, y: 2&#125;;</div><div class="line">`$&#123;obj.x + obj.y&#125;`</div><div class="line">// &quot;3&quot;</div><div class="line">//调用函数</div><div class="line">function fn() &#123;</div><div class="line">    return &apos;Hello&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">`$&#123;fn()&#125; World`;</div><div class="line">// &quot;Hello World&quot;</div></pre></td></tr></table></figure></p>
-<p>4、如果使用模板字符串标识多行字符串，所用的空格缩进都会被保留在输出中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#warning&quot;).html(`  </div><div class="line">  &lt;h1&gt;Watch out!&lt;/h1&gt;  </div><div class="line">  &lt;p&gt;Unauthorized hockeying can result in penalties  </div><div class="line">  of up to $&#123;maxPenalty&#125; minutes.&lt;/p&gt;  </div><div class="line">`);</div></pre></td></tr></table></figure></p>
-<p>5、如果{}中的值不是字符串，将按照一定规则转成字符串。比如大括号中的是个对象，将默认调用对象的toString方法。</p>
-<h3 id="三、标签模板"><a href="#三、标签模板" class="headerlink" title="三、标签模板"></a>三、标签模板</h3><p>标签模板其实不是模板，而是函数调用的一种特殊形式。“标签” 指的就是函数，紧跟在后面的模板字符从就是它的参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = 5;</div><div class="line">var b = 10;</div><div class="line">tag `hello $&#123;a+b&#125; world $&#123;a*b&#125;`;</div></pre></td></tr></table></figure></p>
-<p>上面代码中，模板字符串前面的标识“tag”，它就是个函数。整个表达式的返回值，就是tag函数处理模板字符串后的返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//等同于</div><div class="line">function tag（value1, value2）&#123;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="四、String-raw-方法"><a href="#四、String-raw-方法" class="headerlink" title="四、String.raw() 方法"></a>四、String.raw() 方法</h3><p>String.raw方法用来充当模板字符串的处理函数，返回一个除表达式和变量会被替换，其它都保持原样的字符串。<br>String.raw方法可以作为处理模板字符串的基本方法，它会将所有变量替换，而且对斜杠进行转义，方便下一步作为字符串来使用。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Angular 路由以及路由分离]]></title>
-      <url>http://yoursite.com/2017/07/14/ng_router/</url>
-      <content type="html"><![CDATA[<p>我们要使用 Angular 路由器进行导航，改变页面内容。下面我们来看Angular路由的使用方法：</p>
-<h3 id="1、base-href"><a href="#1、base-href" class="headerlink" title="1、base href"></a>1、base href</h3><p>打开index.html，确保它的head区顶部有一个 base href=”…”元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">  &lt;base href=&quot;/&quot;&gt;</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h3 id="2、配置路由"><a href="#2、配置路由" class="headerlink" title="2、配置路由"></a>2、配置路由</h3><p>在src/app/app.module.ts中引入RouterModule,再定义和配置路由数组。这里以 heroes 定义路由为例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import &#123; RouterModule &#125; from &apos;@angular/router&apos;;</div><div class="line"></div><div class="line"> imports: [</div><div class="line">    RouterModule.forRoot([</div><div class="line">      &#123;</div><div class="line">        path: &apos;heroes&apos;,</div><div class="line">        component: HeroesComponent</div><div class="line">      &#125;</div><div class="line">    ])</div><div class="line">  ],</div></pre></td></tr></table></figure>
-<p>路由定义包括以下部分：<br>Path: 路由器会用它来匹配浏览器地址栏中的地址，如heroes。<br>Component: 导航到此路由时，路由器需要创建的组件（HeroesComponent）。</p>
-<h3 id="3、路由插座"><a href="#3、路由插座" class="headerlink" title="3、路由插座"></a>3、路由插座</h3><p>在浏览器输入<a href="http://localhost:4200/heroes，路由是还没有效果的，需要一个路由出口。" target="_blank" rel="external">http://localhost:4200/heroes，路由是还没有效果的，需要一个路由出口。</a><br>下面我们在src\app\app.component.html的末尾加上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;</div></pre></td></tr></table></figure></p>
-<p>重新查看<a href="http://localhost:4200/heroes，你会发现页面上显示出了" target="_blank" rel="external">http://localhost:4200/heroes，你会发现页面上显示出了</a> HeroesComponent组件的内容。</p>
-<h3 id="4、通配路由"><a href="#4、通配路由" class="headerlink" title="4、通配路由"></a>4、通配路由</h3><p>如果输入一个无效的路由地址，页面是不会有效果的。这个时候我们可以新建一个404组件，所有无效的路由地址都显示该组件。<br>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    path: &apos;**&apos;,</div><div class="line">    component: Code404Component</div><div class="line">  &#125;,</div></pre></td></tr></table></figure></p>
-<p><strong>　注意，通配路由要放在路由配置项的最后面。</strong></p>
-<h3 id="5、路由分离"><a href="#5、路由分离" class="headerlink" title="5、路由分离"></a>5、路由分离</h3><p>目前路由已经可以用起来了，但是还有个小问题，就是直接在app.modules.ts中定义路径并不是很好的方式，因为随着路径定义的复杂，这部分最好还是用单独的文件来定义。<br>现在，新建文件src\app\app-routing.module.ts，将上面在app.modules.ts中定义的路由删除并在app.routes.ts中重新定义：<br>src\app\app-routing.module.ts文件内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">import &#123;NgModule&#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123;RouterModule, Routes&#125; from &apos;@angular/router&apos;;</div><div class="line"></div><div class="line">import &#123; HeroesComponent &#125; from &apos;./heroes.component&apos;;</div><div class="line">import &#123; Code404Component &#125; from &apos;./code404/code404.component&apos;;</div><div class="line">export const routes: Routes = [</div><div class="line">  &#123;</div><div class="line">  &#123;</div><div class="line">    path: &apos;heroes&apos;,</div><div class="line">    component: HeroesComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &apos;**&apos;,</div><div class="line">    component: Code404Component</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">];</div><div class="line">@NgModule(&#123;</div><div class="line">  imports: [RouterModule.forRoot(routes)],</div><div class="line">  exports: [RouterModule],</div><div class="line">  providers: []</div><div class="line">&#125;)</div><div class="line">export class AppRoutingModule &#123;&#125;</div></pre></td></tr></table></figure></p>
-<p>接下来，在app.modules.ts中引入AppRoutingModule.<br>现在，app.modules.ts的内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;</div><div class="line">import &#123; NgModule &#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; FormsModule &#125; from &apos;@angular/forms&apos;;</div><div class="line">import &#123; HttpModule &#125; from &apos;@angular/http&apos;;</div><div class="line">import &#123; CommonModule &#125; from &apos;@angular/common&apos;;</div><div class="line"></div><div class="line">import &#123;AppRoutingModule&#125; from &apos;./app-routing.module&apos;; // 引用路由主文件</div><div class="line">import &#123; AppComponent &#125; from &apos;./app.component&apos;;</div><div class="line">import &#123; HeroesComponent &#125; from &apos;./heroes.component&apos;;</div><div class="line">import &#123; Code404Component &#125; from &apos;./code404/code404.component&apos;;</div><div class="line"></div><div class="line">@NgModule(&#123;</div><div class="line">  declarations: [</div><div class="line">    // 模块中有什么东西，只能声明组件，指令，管道</div><div class="line">    AppComponent,</div><div class="line">    HeroesComponent,</div><div class="line">    Code404Component</div><div class="line">  ],</div><div class="line">  imports: [</div><div class="line">    // app模块依赖的东西</div><div class="line">    BrowserModule,</div><div class="line">    FormsModule,</div><div class="line">    HttpModule,</div><div class="line">    CommonModule,</div><div class="line">    AppRoutingModule</div><div class="line">  ],</div><div class="line">  providers: [],</div><div class="line">  bootstrap: [</div><div class="line">    // 模块的主组件，</div><div class="line">    AppComponent</div><div class="line">  ],</div><div class="line">&#125;)</div><div class="line">export class AppModule &#123; &#125;</div></pre></td></tr></table></figure></p>
-<p>这样两个文件分开是不是更加的清晰明了，方便后面的维护。</p>
+      <title><![CDATA[git commit 和切换分支]]></title>
+      <url>http://yoursite.com/2018/02/26/git_commit/</url>
+      <content type="html"><![CDATA[<p><strong> git 切换分支的时候是否需求提交当前已经修改的内容？ </strong></p>
+<p>当你当前分支又修改的情况下，切换分支，有三种方式：</p>
+<p>1、先提交修改到当前分支，再切换</p>
+<p> git add .<br> git commit<br> git checkout 分支名</p>
+<p> 2、不提交当前修改，先把修改暂存，再切换<br> git add .<br> git stash<br> git checkout 分支名</p>
+<p> 当再次checkout回来之后，再提交当前分子<br> git stash apply<br> git commit </p>
+<p>3、 不提交当前修改，直接切换分支，，注意，这样的话会把当前修改记录到切换当分支下面<br> git add .<br> git commit<br> git checkout 分支名</p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[开发微信小程序中所遇到的问题]]></title>
-      <url>http://yoursite.com/2017/07/12/wxxq/</url>
+      <url>http://yoursite.com/2017/11/09/wxxq/</url>
       <content type="html"><![CDATA[<h3 id="一、页面栈的控制"><a href="#一、页面栈的控制" class="headerlink" title="一、页面栈的控制"></a>一、页面栈的控制</h3><p>官方规定小程序最多只能有 <em> 五个页面 </em> 同时存在，意思是在不关闭页面的情况，最多新开五个页面，页面深度为5。</p>
 <p>但是目前一般来说，应用的业务场景和交互逻辑，远远不止5个页面栈。那如何用 <em> 五个页面 </em> 去实现更多复杂的流程呢？我们将从以下3个方面去进一步了解:</p>
 <ol>
@@ -107,7 +139,7 @@
     
     <entry>
       <title><![CDATA[开发微信小程序]]></title>
-      <url>http://yoursite.com/2017/07/12/wxxiaochengxu/</url>
+      <url>http://yoursite.com/2017/11/09/wxxiaochengxu/</url>
       <content type="html"><![CDATA[<p><strong> 整体配置 </strong></p>
 <p>1、必不可少的三个文件app.js、app.json、app.wxss，js后缀的是脚本文件，.json后缀的文件是配置文件，.wxss后缀的是样式表文件</p>
 <p>2、 app.js是小程序的脚本代码，在这个文件中监听并处理小程序的生命周期函数、声明全局变量，调用API</p>
@@ -134,7 +166,7 @@
     
     <entry>
       <title><![CDATA[前端资源推荐]]></title>
-      <url>http://yoursite.com/2017/07/12/websource/</url>
+      <url>http://yoursite.com/2017/11/09/websource/</url>
       <content type="html"><![CDATA[<p>最全的资源教程-前端涉及的所有知识体系 <a href="https://github.com/AutumnsWind/Front-end-tutorial" target="_blank" rel="external">https://github.com/AutumnsWind/Front-end-tutorial</a></p>
 <p>前端导航 <a href="http://whycss.com/" target="_blank" rel="external">http://whycss.com/</a></p>
 <p>开发者头条 <a href="http://toutiao.io/" target="_blank" rel="external">http://toutiao.io/</a></p>
@@ -154,7 +186,7 @@
     
     <entry>
       <title><![CDATA[前端性能优化总结]]></title>
-      <url>http://yoursite.com/2017/07/12/webperformance/</url>
+      <url>http://yoursite.com/2017/11/09/webperformance/</url>
       <content type="html"><![CDATA[<p> 我们建立网站就是想让目标人群来访问，前端是用户所直接接触的。为了给用户更好的体验，前端性能优化是必须滴！最近读了本《高性能的JavaScript》，然后结合实际遇到的问题。总结以下几个方面进行前端性能优化：</p>
 <a id="more"></a>
 <h3 id="一、-加载"><a href="#一、-加载" class="headerlink" title="一、 加载"></a>一、 加载</h3><p><strong> <code>&lt;body&gt;</code>标签闭合之前，将<code>js</code>放在底部，将<code>css</code>放在顶部 </strong><br>这样能保证在脚本执行之前页面已经完成渲染，避免加载<code>js</code>对后续的资源造成阻塞。</p>
@@ -200,7 +232,7 @@
     
     <entry>
       <title><![CDATA[标准W3C盒子模型和IE(IE6及其以前)盒子模型]]></title>
-      <url>http://yoursite.com/2017/07/12/w3c_box/</url>
+      <url>http://yoursite.com/2017/11/09/w3c_box/</url>
       <content type="html"><![CDATA[<p>盒模型：content，padding。border，margin</p>
 <p>W3C盒子模型和IE(IE6及其以前)盒子模型的区别是，IEcontent部分包含了padding和border。</p>
 <a id="more"></a>
@@ -211,7 +243,7 @@
     
     <entry>
       <title><![CDATA[一个简单的 Vue实践 项目]]></title>
-      <url>http://yoursite.com/2017/07/12/vue_project/</url>
+      <url>http://yoursite.com/2017/11/09/vue_project/</url>
       <content type="html"><![CDATA[<h3 id="本文的主要内容如下："><a href="#本文的主要内容如下：" class="headerlink" title="本文的主要内容如下："></a>本文的主要内容如下：</h3><blockquote>
 <ul>
 <li>安装插件</li>
@@ -270,7 +302,7 @@
     
     <entry>
       <title><![CDATA[vue-cli构建vue项目]]></title>
-      <url>http://yoursite.com/2017/07/12/vue/</url>
+      <url>http://yoursite.com/2017/11/09/vue/</url>
       <content type="html"><![CDATA[<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p><strong> 1. 安装node.js </strong></p>
 <p><strong> 2.安装vue-cli </strong><br>npm install -g vue-cli<br><a id="more"></a><br><strong> 3.使用vue-cli初始化项目 </strong><br>vue init webpack vue-test</p>
 <p>设置介绍<br><img src="http://oi5lhmcye.bkt.clouddn.com/002.jpg" alt="002"><br>Project name 项目名称<br>project des 项目描述<br>Autor 项目作者</p>
@@ -284,7 +316,7 @@
     
     <entry>
       <title><![CDATA[整理几点编辑静态页面的 整体思路和技巧]]></title>
-      <url>http://yoursite.com/2017/07/12/static_html/</url>
+      <url>http://yoursite.com/2017/11/09/static_html/</url>
       <content type="html"><![CDATA[<p>1、  先写大体框架，分区域</p>
 <p>2、  Ps，F2选取图层当前大小</p>
 <p>3、  切图，转化为智能对象，双击</p>
@@ -299,7 +331,7 @@
     
     <entry>
       <title><![CDATA[phpstorm 7.0结合 file watchers sass/scss自动编译]]></title>
-      <url>http://yoursite.com/2017/07/12/php_sass02/</url>
+      <url>http://yoursite.com/2017/11/09/php_sass02/</url>
       <content type="html"><![CDATA[<p>1.ctrl+alt+s，调出settings，搜索 File Watchers，添加SCSS</p>
 <p>2.设置可以看下图，要注意的是 [Program] 最好指定具体目录,用环境变量 $RUBY_HOME$\scss.bat,会出错</p>
 <p>3.Arguments 就是写上sass/scss支持的 语法 例如 –style compressed test.sass test.css,</p>
@@ -311,7 +343,7 @@
     
     <entry>
       <title><![CDATA[phpstorm安装 SASS、SCSS + Compass]]></title>
-      <url>http://yoursite.com/2017/07/12/php_sass/</url>
+      <url>http://yoursite.com/2017/11/09/php_sass/</url>
       <content type="html"><![CDATA[<h3 id="1-安装-PHPStorm-的-SASS-插件"><a href="#1-安装-PHPStorm-的-SASS-插件" class="headerlink" title="1. 安装 PHPStorm 的 SASS 插件"></a>1. 安装 PHPStorm 的 SASS 插件</h3><p>好像是自带了该插件的，如果没有的话，就打开 setting -&gt; plugins  自己安装一个吧，就不多说了<br><img src="http://oi5lhmcye.bkt.clouddn.com/sass_01.png" alt="sass_01"></p>
 <h3 id="2-安装-Ruby"><a href="#2-安装-Ruby" class="headerlink" title="2. 安装 Ruby"></a>2. 安装 Ruby</h3><p>Windows 版本下载地址：<br><a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a><br>Linux or Mac 地址：<br><a href="http://ruby.taobao.org/mirrors/ruby/" target="_blank" rel="external">http://ruby.taobao.org/mirrors/ruby/</a><br>我用的是 windows 版最新的 2.2.1 版本<br>配置好系统环境，将ruby 的bin目录绝对路径添加到 path 环境变量中，windows版安装的时候可以勾选自动添加<br>可参考这片博文：<br><a href="http://www.w3cplus.com/css/css-preprocessor-sass-vs-less-stylus-2.html" target="_blank" rel="external">http://www.w3cplus.com/css/css-preprocessor-sass-vs-less-stylus-2.html</a></p>
 <a id="more"></a>
@@ -333,7 +365,7 @@
     
     <entry>
       <title><![CDATA[phpstorm配置Xdebug进行调试]]></title>
-      <url>http://yoursite.com/2017/07/12/php_debug/</url>
+      <url>http://yoursite.com/2017/11/09/php_debug/</url>
       <content type="html"><![CDATA[<h3 id="1、下载xdebug文件"><a href="#1、下载xdebug文件" class="headerlink" title="1、下载xdebug文件"></a>1、下载xdebug文件</h3><p><a href="http://xdebug.org/download.php（注：如果开发环境里装了xampp，其集成了php的开发平台，可以不用下载，省略这步）" target="_blank" rel="external">http://xdebug.org/download.php（注：如果开发环境里装了xampp，其集成了php的开发平台，可以不用下载，省略这步）</a></p>
 <h3 id="2、配置php-ini，在末尾加上"><a href="#2、配置php-ini，在末尾加上" class="headerlink" title="2、配置php.ini，在末尾加上"></a>2、配置php.ini，在末尾加上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">zend_extension = &quot;D:\xampp\php\ext\php_xdebug.dll&quot;//xdebug文件的所在路径</div><div class="line">xdebug.profiler_append = 0</div><div class="line">xdebug.profiler_enable = 1</div><div class="line">xdebug.profiler_enable_trigger = 0</div><div class="line">xdebug.profiler_output_name = &quot;cachegrind.out.%t-%s&quot;</div><div class="line">xdebug.remote_handler = &quot;dbgp&quot;</div><div class="line">xdebug.remote_host = &quot;127.0.0.1&quot;</div><div class="line">xdebug.trace_output_dir = &quot;D:\xampp\tmp&quot;</div><div class="line">xdebug.remote_enable = On</div><div class="line">xdebug.remote_handler = dbgp</div><div class="line">xdebug.remote_port = 9000//服务器监听端口</div><div class="line">xdebug.idekey = PHPSTORM//调试器的关键字，在phpstrom配置时要用到</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -349,7 +381,7 @@
     
     <entry>
       <title><![CDATA[js动态添加DOM，绑定事件会重复执行]]></title>
-      <url>http://yoursite.com/2017/07/12/on_event/</url>
+      <url>http://yoursite.com/2017/11/09/on_event/</url>
       <content type="html"><![CDATA[<p>使用动态 js 添加DOM，同时对加入的内容绑定点击事件的时候。该<strong>事件会重复执行</strong><br>比如：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">  &lt;div class=&quot;checkbox1&quot;&gt;</div><div class="line">      &lt;h1&gt;这是个标题&lt;/h1&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;div class=&quot;change&quot; style=&quot;cursor: pointer;color: red;&quot;&gt;点击添加一个标题&lt;/div&gt;</div><div class="line">  &lt;script type=&quot;text/javascript&quot; src=&quot;js/components.js&quot;&gt;&lt;/script&gt;</div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">      $(&quot;.change&quot;).click( function () &#123;</div><div class="line">          $(&quot;.checkbox1&quot;).append(&apos;&lt;div class=&quot;check-all&quot;&gt;&lt;span&gt;&lt;h2&gt;这是另外一个标题&lt;/h2&gt;&lt;/span&gt;&lt;/div&gt;&apos;);</div><div class="line">          //$(&quot;.check-all span&quot;).off(&quot;click&quot;);</div><div class="line">          $(&quot;.check-all span&quot;).click(function () &#123;</div><div class="line">              console.log(&quot;a&quot;);</div><div class="line">          &#125;)</div><div class="line">          /* $(&quot;.check-all span&quot;).unbind(&quot;click&quot;).click(function()&#123;</div><div class="line">           console.log(&quot;ss&quot;);</div><div class="line">           &#125;);*/</div><div class="line">          /* $(&quot;.checkbox1&quot;).on(&quot;click&quot;, &quot;.check-all span&quot;, function () &#123;</div><div class="line">           console.log(&quot;ss&quot;);</div><div class="line">           &#125;);*/</div><div class="line">      &#125;);</div><div class="line">  &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure></p>
 <p>你添加两次标题的时候，你会发现，console 台输出了2次 a。<br>解决办法如下：<br>1、在 绑定事件之前，对该事件解绑，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(&quot;.check-all span&quot;).off(&quot;click&quot;);</div><div class="line">          $(&quot;.check-all span&quot;).click(function () &#123;</div><div class="line">              console.log(&quot;aa&quot;);</div><div class="line">          &#125;)</div></pre></td></tr></table></figure></p>
 <p>2、unbind(‘click’)上一次的click事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;.check-all span&quot;).unbind(&quot;click&quot;).click(function()&#123;</div><div class="line">           console.log(&quot;ss&quot;);</div><div class="line">           &#125;);</div></pre></td></tr></table></figure></p>
@@ -358,8 +390,50 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Angular 数据绑定与常用指令]]></title>
+      <url>http://yoursite.com/2017/11/09/ng_zhiling/</url>
+      <content type="html"><![CDATA[<h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>Angular 数据绑定使用了大量的括号。可以根据数据流动方式分为三种数据绑定，分别是：<br>1、单向：从数据到视图方向（属性绑定，模板插值）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 模板插值用 &#123;&#123;&#125;&#125;</div><div class="line">&lt;p&gt;&#123;&#123;studentId&#125;&#125;&lt;/p&gt; </div><div class="line">//属性绑定用 []</div><div class="line">&lt;div [title]=&quot;name&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>2、单向：从视图到数据方向（事件绑定)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 事件绑定用()</div><div class="line">&lt;div (click)=&quot;getId()&quot;&gt;&lt;/div&gt;&gt;</div></pre></td></tr></table></figure></p>
+<p>3、双向绑定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> // 双向绑定用[()]</div><div class="line">&lt;div [(title)]=&quot;name&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、NgClass<br>通过NgClass可以同时添加或移出多个类，NgClass的第一个参数为css类名称，第二个参数为布尔类型的数据值value。当value为true时则添加对应的类名到模板元素中，反之则移除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//基本用法</div><div class="line">&lt;div [ngClass]=&quot;&#123;&apos;text-success&apos;:true&#125;&quot;&gt;&lt;/&lt;div&gt; </div><div class="line">//判断</div><div class="line">&lt;div [ngClass]=&quot;&#123;&apos;text-success&apos;:username == &apos;anne&apos;&#125;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>2、NgStyle<br>可以给模板元素设置单一元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//基本用法</div><div class="line">&lt;div [ngStyle]=&quot;&#123;&apos;background-color&apos;:&apos;green&apos;&#125;&quot;&gt;&lt;/&lt;div&gt;  </div><div class="line">//判断添加</div><div class="line">&lt;div [ngStyle]=&quot;&#123;&apos;background-color&apos;:username === &apos;zxc&apos; ? &apos;green&apos; : &apos;red&apos; &#125;&quot;&gt;&lt;/&lt;div&gt;</div></pre></td></tr></table></figure></p>
+<p>3、NgIf<br>NgIf指令绑定一个布尔类型的表达式，当表达式返回true时，可以在DOM树节点上添加一个元素及其子元素，反之将其移除。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div *ngIf=&quot;count===0&quot;&gt;&lt;/&lt;div&gt;</div></pre></td></tr></table></figure></p>
+<p>4、NgSwitch<br>NgSwitch指令需要结合NgSwitchCase和NgSwitchDefault指令来使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div [ngSwitch]=&quot;state&quot;&gt;</div><div class="line">    &lt;template *ngSwitchCase=&quot;&apos;state1&apos;&quot;&gt;State1&lt;/template&gt;</div><div class="line">    &lt;template *ngSwitchCase=&quot;&apos;state2&apos;&quot;&gt;State2&lt;/template&gt;</div><div class="line">    &lt;template *ngSwitchCase=&quot;&apos;state3&apos;&quot;&gt;State3&lt;/template&gt;</div><div class="line">    &lt;template *ngSwitchDefault&gt;default&lt;/template&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>5、NgFor<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li *ngFor=&quot;let listItem of lists&quot;&gt;&#123;&#123;listItem.name&#125;&#125;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Angular 启动过程]]></title>
+      <url>http://yoursite.com/2017/11/09/ng_start/</url>
+      <content type="html"><![CDATA[<p>在前面有一片博客中写到 用Angular Cli 构建 Angular 项目，那接着这里来了解下Angular项目的启动过程。</p>
+<p>项目启动主要通过../src下的两个文件，main.ts 和index.html。<br><a id="more"></a><br>main.ts加载脚本，负责引导整个Angular应用的起点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 导入enableProdMode用来关闭angular开发者模式</div><div class="line">import &#123; enableProdMode &#125; from &apos;@angular/core&apos;;</div><div class="line">// 负责从angular浏览器模块中导入platformBrowserDynamic这个方法，</div><div class="line">// 这个方法告诉angular使用哪个模块来启动整个应用</div><div class="line">import &#123; platformBrowserDynamic &#125; from &apos;@angular/platform-browser-dynamic&apos;;</div><div class="line">// 整个应用的主模块</div><div class="line">import &#123; AppModule &#125; from &apos;./app/app.module&apos;;</div><div class="line">// angular多环境支持</div><div class="line">import &#123; environment &#125; from &apos;./environments/environment&apos;;</div><div class="line"></div><div class="line">if (environment.production) &#123;</div><div class="line">  // 如果是工厂模式，就启动enableProdMode来关闭开发者模式</div><div class="line">  enableProdMode();</div><div class="line">&#125;</div><div class="line">// 调用bootstrapModule方法来传入AppModule作为启动模块来启动应用。</div><div class="line">platformBrowserDynamic().bootstrapModule(AppModule);</div></pre></td></tr></table></figure></p>
+<p>index.html加载页面，寻找启动模块（AppModule）指定的主组件对应的选择器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">  &lt;title&gt;Mytest&lt;/title&gt;</div><div class="line">  &lt;base href=&quot;/&quot;&gt;</div><div class="line"></div><div class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</div><div class="line">  &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;favicon.ico&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">//appcomponent启动后加载完所有依赖会寻找到index里面的app-root，会根据app-root找到叫app-root的css</div><div class="line">选择器，去加载这个选择器所对应的html内容，在app-root的位置替代aoo-root显示</div><div class="line">  &lt;app-root&gt;&lt;/app-root&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Angular 路由以及路由分离]]></title>
+      <url>http://yoursite.com/2017/11/09/ng_router/</url>
+      <content type="html"><![CDATA[<p>我们要使用 Angular 路由器进行导航，改变页面内容。下面我们来看Angular路由的使用方法：</p>
+<h3 id="1、base-href"><a href="#1、base-href" class="headerlink" title="1、base href"></a>1、base href</h3><p>打开index.html，确保它的head区顶部有一个 base href=”…”元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">  &lt;base href=&quot;/&quot;&gt;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="2、配置路由"><a href="#2、配置路由" class="headerlink" title="2、配置路由"></a>2、配置路由</h3><p>在src/app/app.module.ts中引入RouterModule,再定义和配置路由数组。这里以 heroes 定义路由为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import &#123; RouterModule &#125; from &apos;@angular/router&apos;;</div><div class="line"></div><div class="line"> imports: [</div><div class="line">    RouterModule.forRoot([</div><div class="line">      &#123;</div><div class="line">        path: &apos;heroes&apos;,</div><div class="line">        component: HeroesComponent</div><div class="line">      &#125;</div><div class="line">    ])</div><div class="line">  ],</div></pre></td></tr></table></figure>
+<p>路由定义包括以下部分：<br>Path: 路由器会用它来匹配浏览器地址栏中的地址，如heroes。<br>Component: 导航到此路由时，路由器需要创建的组件（HeroesComponent）。</p>
+<h3 id="3、路由插座"><a href="#3、路由插座" class="headerlink" title="3、路由插座"></a>3、路由插座</h3><p>在浏览器输入<a href="http://localhost:4200/heroes，路由是还没有效果的，需要一个路由出口。" target="_blank" rel="external">http://localhost:4200/heroes，路由是还没有效果的，需要一个路由出口。</a><br>下面我们在src\app\app.component.html的末尾加上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;</div></pre></td></tr></table></figure></p>
+<p>重新查看<a href="http://localhost:4200/heroes，你会发现页面上显示出了" target="_blank" rel="external">http://localhost:4200/heroes，你会发现页面上显示出了</a> HeroesComponent组件的内容。</p>
+<h3 id="4、通配路由"><a href="#4、通配路由" class="headerlink" title="4、通配路由"></a>4、通配路由</h3><p>如果输入一个无效的路由地址，页面是不会有效果的。这个时候我们可以新建一个404组件，所有无效的路由地址都显示该组件。<br>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    path: &apos;**&apos;,</div><div class="line">    component: Code404Component</div><div class="line">  &#125;,</div></pre></td></tr></table></figure></p>
+<p><strong>　注意，通配路由要放在路由配置项的最后面。</strong></p>
+<h3 id="5、路由分离"><a href="#5、路由分离" class="headerlink" title="5、路由分离"></a>5、路由分离</h3><p>目前路由已经可以用起来了，但是还有个小问题，就是直接在app.modules.ts中定义路径并不是很好的方式，因为随着路径定义的复杂，这部分最好还是用单独的文件来定义。<br>现在，新建文件src\app\app-routing.module.ts，将上面在app.modules.ts中定义的路由删除并在app.routes.ts中重新定义：<br>src\app\app-routing.module.ts文件内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">import &#123;NgModule&#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123;RouterModule, Routes&#125; from &apos;@angular/router&apos;;</div><div class="line"></div><div class="line">import &#123; HeroesComponent &#125; from &apos;./heroes.component&apos;;</div><div class="line">import &#123; Code404Component &#125; from &apos;./code404/code404.component&apos;;</div><div class="line">export const routes: Routes = [</div><div class="line">  &#123;</div><div class="line">  &#123;</div><div class="line">    path: &apos;heroes&apos;,</div><div class="line">    component: HeroesComponent</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    path: &apos;**&apos;,</div><div class="line">    component: Code404Component</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">];</div><div class="line">@NgModule(&#123;</div><div class="line">  imports: [RouterModule.forRoot(routes)],</div><div class="line">  exports: [RouterModule],</div><div class="line">  providers: []</div><div class="line">&#125;)</div><div class="line">export class AppRoutingModule &#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来，在app.modules.ts中引入AppRoutingModule.<br>现在，app.modules.ts的内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;</div><div class="line">import &#123; NgModule &#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; FormsModule &#125; from &apos;@angular/forms&apos;;</div><div class="line">import &#123; HttpModule &#125; from &apos;@angular/http&apos;;</div><div class="line">import &#123; CommonModule &#125; from &apos;@angular/common&apos;;</div><div class="line"></div><div class="line">import &#123;AppRoutingModule&#125; from &apos;./app-routing.module&apos;; // 引用路由主文件</div><div class="line">import &#123; AppComponent &#125; from &apos;./app.component&apos;;</div><div class="line">import &#123; HeroesComponent &#125; from &apos;./heroes.component&apos;;</div><div class="line">import &#123; Code404Component &#125; from &apos;./code404/code404.component&apos;;</div><div class="line"></div><div class="line">@NgModule(&#123;</div><div class="line">  declarations: [</div><div class="line">    // 模块中有什么东西，只能声明组件，指令，管道</div><div class="line">    AppComponent,</div><div class="line">    HeroesComponent,</div><div class="line">    Code404Component</div><div class="line">  ],</div><div class="line">  imports: [</div><div class="line">    // app模块依赖的东西</div><div class="line">    BrowserModule,</div><div class="line">    FormsModule,</div><div class="line">    HttpModule,</div><div class="line">    CommonModule,</div><div class="line">    AppRoutingModule</div><div class="line">  ],</div><div class="line">  providers: [],</div><div class="line">  bootstrap: [</div><div class="line">    // 模块的主组件，</div><div class="line">    AppComponent</div><div class="line">  ],</div><div class="line">&#125;)</div><div class="line">export class AppModule &#123; &#125;</div></pre></td></tr></table></figure></p>
+<p>这样两个文件分开是不是更加的清晰明了，方便后面的维护。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Angular 引入第三方库]]></title>
-      <url>http://yoursite.com/2017/07/12/ng_chajian/</url>
+      <url>http://yoursite.com/2017/11/09/ng_chajian/</url>
       <content type="html"><![CDATA[<p>如果我们在开发Angular应用的时候想使用第三方的库，比如jQuery或bootstrap等，该如何去引入并使用呢？<br>主要通过三步：</p>
 <a id="more"></a>
 <h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install jquery –-save-dev</div><div class="line">$ npm install bootstrap –-save-dev</div></pre></td></tr></table></figure>
@@ -375,8 +449,17 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Angular2 概要]]></title>
+      <url>http://yoursite.com/2017/11/09/ng_about/</url>
+      <content type="html"><![CDATA[<h3 id="一、Angular2-0的诞生"><a href="#一、Angular2-0的诞生" class="headerlink" title="一、Angular2.0的诞生"></a>一、Angular2.0的诞生</h3><p>AngularJs1.X的困境：<br>1、性能问题，采用脏检查实现数据更新，当页面的数据越来越多，脏检查的效率就会越来越低。<br>2、落后于当前的web发展理念。<br>3、对手机端支持不够友好，Angular1.x没有针对移动 应用特别优化，并且缺少一些关键的特性，需要依赖IONIC移动app开发框架。<br><a id="more"></a><br>Angular2.x的优势:<br>1、移出了controller+$scope设计，改为组件式的开发。<br>2、性能上的优化，渲染更快，变化检测效率更高。<br>3、仿照web后端的结构模式来编写前端，支持模块，类等特性。<br>4、支持原生移动设备开发。<br>5、更加贴合未来的标注，引入了TypeScript。</p>
+<p>注意：现在基本管Angular1.x的版本统称AngularJs，Angular2.x统称Angular。</p>
+<h3 id="二、Angular2-0-的核心模块。"><a href="#二、Angular2-0-的核心模块。" class="headerlink" title="二、Angular2.0 的核心模块。"></a>二、Angular2.0 的核心模块。</h3><p>一个完整的Angular应用主要由六个重要部分构成，分别是：组件、模板、指令、服务、依赖注入和路由。这些组成部分各司其职，而又紧密协作。它们的关系如下图所示：<br><img src="/uploads/ng_model.jpg" alt="ng_model"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Angular Cli 构建 Angular 项目]]></title>
-      <url>http://yoursite.com/2017/07/12/ng/</url>
+      <url>http://yoursite.com/2017/11/09/ng/</url>
       <content type="html"><![CDATA[<h3 id="一、环境搭建"><a href="#一、环境搭建" class="headerlink" title="一、环境搭建"></a>一、环境搭建</h3><p><strong> 基础工具安装 </strong></p>
 <p>NodeJS 5.0以上版本,NPM 3.0以上版本；Typescript。<br>目前我用的是（node.js  6.10.3, npm 3.10.10）</p>
 <p><strong> 安装Angular Cli </strong><br>有两种方式安装：<br>强烈建议使用npm安装@angular/cli，不推荐使用淘宝镜像cnpm来安装。</p>
@@ -411,7 +494,7 @@
     
     <entry>
       <title><![CDATA[MVC和MVVM]]></title>
-      <url>http://yoursite.com/2017/07/12/mvc/</url>
+      <url>http://yoursite.com/2017/11/09/mvc/</url>
       <content type="html"><![CDATA[<p>1、MVC 是应用最广泛的软件框架之一，一般MVC分为：Model（模型），View（视图），Controller（控制器）。</p>
 <a id="more"></a>
 <p>Model可直接访问业务数据，View数据的显示，Controller联系View和Model，基本联系是单向的。<br>首先View传送指令给Controller；<br>然后Controller完成逻辑后，要求Model改变状态最后：<br>Model将新数据发送给ViewUser。<br>MVC架构的缺点，视图与控制器间的过于紧密的链接。<br><img src="/uploads/mvc/mvc01.png" alt="mvc01"><br>2、MVP是从经典的MVC演变而来，Controller/Presenter负责逻辑处理，Model提供数据，View显示数据。不过在MVP中，Presenter把View和Model进行了分离，主要的程序逻辑在Presenter中实现，而Presenter与具体的View没有直接关联，而是通过定义好的接口进行交互，使得在更变View的时候可以保持Presenter不变。<br><img src="/uploads/mvc/mvc02.png" alt="mvc02"><br>3、相比于前面两种模式，MVVM只是把MVC的Controller和MVP的Presenter改成了ViewModel,基本和Mvp一致，唯一区别就是，采用双向绑定，View的变化会自动更新到ViewModel，ViewModel的变化也会同步到View上显示。<br><img src="/uploads/mvc/mvc03.png" alt="mvc03"></p>
@@ -420,7 +503,7 @@
     
     <entry>
       <title><![CDATA[双向绑定的优缺点]]></title>
-      <url>http://yoursite.com/2017/07/12/model_youdian/</url>
+      <url>http://yoursite.com/2017/11/09/model_youdian/</url>
       <content type="html"><![CDATA[<p><strong>单向数据绑定：</strong><br>指的是我们先把模板写好，然后把模板和数据（数据可能来自后台）整合到一起形成HTML代码，然后把这段HTML代码插入到文档流里面。缺点：单向数据绑定缺点：HTML代码一旦生成完以后，就没有办法再变了，如果有新的数据来了，那就必须把之前的HTML代码去掉，再重新把新的数据和模板一起整合后插入到文档流中。<br>优点：单向数据流　数据流动方向可以跟踪，流动单一，追查问题的时候可以跟快捷。</p>
 <p><strong>双向数据绑定：</strong><br>数据模型（Module）和视图（View）之间的双向绑定。<br>缺点：各种数据相互依赖相互绑定，导致数据问题的源头难以被跟踪到，不利于管理数据源。<br>优点:双向数据绑定最经常的应用场景就是表单了，这样当用户在前端页面完成输入后，不用任何操作，我们就已经拿到了用户的数据存放到数据模型中了。</p>
 ]]></content>
@@ -428,7 +511,7 @@
     
     <entry>
       <title><![CDATA[Markdown 语法的简要规则]]></title>
-      <url>http://yoursite.com/2017/07/12/markdown/</url>
+      <url>http://yoursite.com/2017/11/09/markdown/</url>
       <content type="html"><![CDATA[<h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>在文字前加 # 号</p>
 <h3 id="2-列表"><a href="#2-列表" class="headerlink" title="2. 列表"></a>2. 列表</h3><p>在文字前加 - 或者 * 变为无序列表，在文字前加 1. 2. （符号和文字间有个空格）为有序列表<br><a id="more"></a></p>
 <h3 id="3-引用"><a href="#3-引用" class="headerlink" title="3. 引用"></a>3. 引用</h3><p>在文本前加入&gt;即可</p>
@@ -443,7 +526,7 @@
     
     <entry>
       <title><![CDATA[Linux常用命令]]></title>
-      <url>http://yoursite.com/2017/07/12/Linux/</url>
+      <url>http://yoursite.com/2017/11/09/Linux/</url>
       <content type="html"><![CDATA[<p><strong> 1、文件管理 </strong></p>
 <p>①查看文件</p>
 <p>查看当前目录下的文件和目录： ls </p>
@@ -482,7 +565,7 @@
     
     <entry>
       <title><![CDATA[跨域请求的几种方式]]></title>
-      <url>http://yoursite.com/2017/07/12/kuayu/</url>
+      <url>http://yoursite.com/2017/11/09/kuayu/</url>
       <content type="html"><![CDATA[<h3 id="一、为何需要跨"><a href="#一、为何需要跨" class="headerlink" title="一、为何需要跨"></a>一、为何需要跨</h3><pre><code>同源策略是浏览器的基本安全功能，所谓同源，即协议、域名、端口相同。当浏览器执行一个脚本是，会检查脚本是否同源，才会去执
 </code></pre><p>行！如果不同如何去执行呢，这时候就需要跨域！</p>
 <h3 id="二、跨域的具体方式"><a href="#二、跨域的具体方式" class="headerlink" title="二、跨域的具体方式"></a>二、跨域的具体方式</h3><pre><code>提到跨域，可能光想到有个jsonp。然而jsonp是什么，跨域还有没有其他方式就不知道了，所下面来了解下跨域的几种方式及原理：
@@ -498,13 +581,13 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[Javascript 模板引擎]]></title>
-      <url>http://yoursite.com/2017/07/12/js_template/</url>
+      <url>http://yoursite.com/2017/11/09/js_template/</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title><![CDATA[js事件委托]]></title>
-      <url>http://yoursite.com/2017/07/12/js_event/</url>
+      <url>http://yoursite.com/2017/11/09/js_event/</url>
       <content type="html"><![CDATA[<p><strong> 事件委托 </strong> 就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。</p>
 <p>比如一个<code>ul</code>有100个<code>li</code>， 这 100个 <code>li</code> 都有相同的点击事件，如果我们采用循环的方法对这100个<code>li</code>click方法，这样我们就需要不断的和DOM节点交互，DOM访问次数越多，DOM重绘重排就越多。可是如果使用 事件委托机制去处理的话，我们只需要给 <code>ul</code> 加上个点击事件就可以了，DOM操作只需交互一次，大大提高性能。</p>
 <p><strong> 那事件委托是怎么去实现的呢? </strong><br>事件委托是利用事件的冒泡原理来实现的，何为事件冒泡呢？<br>就是事件从最深的节点开始，然后逐步向上传播事件，举个例子：页面上有这么一个节点树，div&gt;ul&gt;li&gt;a;比如给最里面的a加一个click点击事件，那么这个事件就会一层一层的往外执行，执行顺序a&gt;li&gt;ul&gt;div，有这样一个机制，那么我们给最外面的div加点击事件，那么里面的ul，li，a做点击事件的时候，都会冒泡到最外层的div上，所以都会触发，这就是事件委托，委托它们父级代为执行事件。</p>
@@ -516,7 +599,7 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[js运算出现多位小数问题]]></title>
-      <url>http://yoursite.com/2017/07/12/js_division/</url>
+      <url>http://yoursite.com/2017/11/09/js_division/</url>
       <content type="html"><![CDATA[<p>不知道你们有没有踩过，js运算时出现多位小数的坑，比如 22.77+10，结果竟然是32.769999999996。<br>目前我的解决方案是这样的：<br>首先将小数变成整数，然后再除于相应的倍数。比如上面的计算可以写成（（22.77×100）+（10×100））/100</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function getNumber()&#123;</div><div class="line">	var a = 22.77;</div><div class="line">	var b = 10;</div><div class="line">    var aa = Math.pow(10,data_rate(a));//a放大的倍数</div><div class="line">    var bb = Math.pow(10,data_rate(b));//b放大的倍数</div><div class="line">    var cc = aa*bb;//总共放大的倍数</div><div class="line">    alert(((a*cc)+(b*cc))/cc)</div><div class="line">&#125;</div><div class="line">function  data_rate(str)&#123;//这里计算放大多少倍</div><div class="line">        str = str.toString();</div><div class="line">        if(str.indexOf(&quot;.&quot;) == -1)&#123;</div><div class="line">            return 1;</div><div class="line">        &#125;else&#123;</div><div class="line">            return parseInt(str.length-str.indexOf(&quot;.&quot;)-1);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 ]]></content>
@@ -524,14 +607,14 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[encodeURl()加号变空格问题]]></title>
-      <url>http://yoursite.com/2017/07/12/js_decode/</url>
+      <url>http://yoursite.com/2017/11/09/js_decode/</url>
       <content type="html"><![CDATA[<p>使用 encodeURIComponent() ，嘿嘿。。。。</p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Javascript闭包]]></title>
-      <url>http://yoursite.com/2017/07/12/js_closure/</url>
+      <url>http://yoursite.com/2017/11/09/js_closure/</url>
       <content type="html"><![CDATA[<h3 id="一、变量的作用域"><a href="#一、变量的作用域" class="headerlink" title="一、变量的作用域"></a>一、变量的作用域</h3><p>要理解闭包，首先必须理解Javascript特殊的变量作用域。<br>变量的作用域无非就是两种：全局变量和局部变量。<br>Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var n=999;</div><div class="line">function f1()&#123;</div><div class="line">alert(n);</div><div class="line">&#125;</div><div class="line">f1(); // 999</div></pre></td></tr></table></figure>
@@ -554,7 +637,7 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[Hexo+Github 搭建博客]]></title>
-      <url>http://yoursite.com/2017/07/12/hexo/</url>
+      <url>http://yoursite.com/2017/11/09/hexo/</url>
       <content type="html"><![CDATA[<h3 id="1-安装node"><a href="#1-安装node" class="headerlink" title="1. 安装node"></a>1. 安装node</h3><p>安装Node（必须）<br>作用：用来生成静态页面的<br>到Node.js官网下载相应平台的最新版本，一路安装即可。</p>
 <p>安装Git（必须）<br>作用：把本地的hexo内容提交到github上去。<br><a id="more"></a></p>
 <h3 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2. 安装hexo"></a>2. 安装hexo</h3><p>创建一个文件夹,如blog,用户存放hexo的配置文件,然后进入blog里安装Hexo。<br>（Windows cmd 执行如下命令）<br>安装Hexo：<br><strong>npm install -g hexo</strong><br>初始化hexo：<br><strong>hexo init</strong><br>好啦，至此，全部安装工作已经完成！blog就是你的博客根目录，所有的操作都在里面进行。<br><!-- more --><br>可以本地启动，进行文章预览：<br><strong>hexo server</strong> 或者（hexo s）<br>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> ,现在你就可以看到你的页面啦</p>
@@ -574,7 +657,7 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[构建工具gulp的使用]]></title>
-      <url>http://yoursite.com/2017/07/12/gulp/</url>
+      <url>http://yoursite.com/2017/11/09/gulp/</url>
       <content type="html"><![CDATA[<h3 id="gulp的安装"><a href="#gulp的安装" class="headerlink" title="gulp的安装"></a>gulp的安装</h3><p><strong> 1、 安装node.js </strong><br>如果是新建项目，执行 npm init 创建package.json文件</p>
 <p><strong> 2、全局安装gulp </strong><br>$ npm install –global gulp</p>
 <p><strong> 3、项目本地安装gulp </strong><br>$ npm install –save-dev gulp<br>(<em> –save 可以让gulp插件显示在 package.json中</em>)<br><a id="more"></a></p>
@@ -593,7 +676,7 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[git撤销操作]]></title>
-      <url>http://yoursite.com/2017/07/12/git_checkout/</url>
+      <url>http://yoursite.com/2017/11/09/git_checkout/</url>
       <content type="html"><![CDATA[<ol>
 <li>取消对文件的修改</li>
 </ol>
@@ -614,7 +697,7 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[一张图读懂 git远程操作]]></title>
-      <url>http://yoursite.com/2017/07/12/git/</url>
+      <url>http://yoursite.com/2017/11/09/git/</url>
       <content type="html"><![CDATA[<p>Workspace：工作区</p>
 <p>Index / Stage：暂存区</p>
 <p>Repository：仓库区（或本地仓库）</p>
@@ -632,7 +715,7 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[Flex 布局]]></title>
-      <url>http://yoursite.com/2017/07/12/flexbox/</url>
+      <url>http://yoursite.com/2017/11/09/flexbox/</url>
       <content type="html"><![CDATA[<p>布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。</p>
 <p>2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。</p>
 <a id="more"></a>
@@ -743,8 +826,26 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     </entry>
     
     <entry>
+      <title><![CDATA[ES6 模板字符串]]></title>
+      <url>http://yoursite.com/2017/11/09/es6_template_string/</url>
+      <content type="html"><![CDATA[<h3 id="一、认识反引号"><a href="#一、认识反引号" class="headerlink" title="一、认识反引号"></a>一、认识反引号</h3><p>在传统的JavaScript输出模板通常是这样写的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&apos;#result&apos;).append(</div><div class="line">  &apos;There are &lt;b&gt;&apos; + basket.count + &apos;&lt;/b&gt; &apos; +</div><div class="line">  &apos;items in your basket, &apos; +</div><div class="line">  &apos;&lt;em&gt;&apos; + basket.onSale +</div><div class="line">  &apos;&lt;/em&gt; are on sale!&apos;</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>以上写法繁琐不方便，ES6引入了模板字符串来解决这个问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&apos;#result&apos;).append(`</div><div class="line">  There are &lt;b&gt;$&#123;basket.count&#125;&lt;/b&gt; items</div><div class="line">   in your basket, &lt;em&gt;$&#123;basket.onSale&#125;&lt;/em&gt;</div><div class="line">  are on sale!</div><div class="line">`);</div></pre></td></tr></table></figure></p>
+<p>模板字符串是增强版的字符串。用反引号（`）来标识。</p>
+<h3 id="二、用法"><a href="#二、用法" class="headerlink" title="二、用法"></a>二、用法</h3><p>它可以当做普通字符串使用，也可以用来定义多行字符串，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 普通字符串</div><div class="line">`In JavaScript &apos;\n&apos; is a line-feed.`</div><div class="line"></div><div class="line">// 多行字符串</div><div class="line">`In JavaScript this is</div><div class="line">not legal.`</div><div class="line"></div><div class="line">// 字符串中嵌入变量</div><div class="line">var name = &quot;Bob&quot;, time = &quot;today&quot;;</div><div class="line">`Hello $&#123;name&#125;, how are you $&#123;time&#125;?`  // Hello Bob, how are you today?</div></pre></td></tr></table></figure></p>
+<p><strong>注意:</strong><br>1、在模板字符串两端都使用了反引号，而如果在模板字符串中间需要使用反引号，则需要在其前面使用反斜杠转义。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var greeting = `\`Yo\` World!`; // `Yo` World!</div></pre></td></tr></table></figure></p>
+<p>3、在模板字符串中嵌入变量，需要将变量名写在 ${}中。{} 内可以放入任意的JavaScript·表达式，可以进行运算，已经引用对象属性，模板字符串中还能调用函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var x = 1, y = 2;</div><div class="line"></div><div class="line">`$&#123;x&#125; + $&#123;y&#125; = $&#123;x + y&#125;`;</div><div class="line">// &quot;1 + 2 = 3&quot;</div><div class="line"></div><div class="line">`$&#123;x&#125; + $&#123;y * 2&#125; = $&#123;x + y * 2&#125;`;</div><div class="line">// &quot;1 + 4 = 5&quot;</div><div class="line"></div><div class="line">var obj = &#123;x: 1, y: 2&#125;;</div><div class="line">`$&#123;obj.x + obj.y&#125;`</div><div class="line">// &quot;3&quot;</div><div class="line">//调用函数</div><div class="line">function fn() &#123;</div><div class="line">    return &apos;Hello&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">`$&#123;fn()&#125; World`;</div><div class="line">// &quot;Hello World&quot;</div></pre></td></tr></table></figure></p>
+<p>4、如果使用模板字符串标识多行字符串，所用的空格缩进都会被保留在输出中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#warning&quot;).html(`  </div><div class="line">  &lt;h1&gt;Watch out!&lt;/h1&gt;  </div><div class="line">  &lt;p&gt;Unauthorized hockeying can result in penalties  </div><div class="line">  of up to $&#123;maxPenalty&#125; minutes.&lt;/p&gt;  </div><div class="line">`);</div></pre></td></tr></table></figure></p>
+<p>5、如果{}中的值不是字符串，将按照一定规则转成字符串。比如大括号中的是个对象，将默认调用对象的toString方法。</p>
+<h3 id="三、标签模板"><a href="#三、标签模板" class="headerlink" title="三、标签模板"></a>三、标签模板</h3><p>标签模板其实不是模板，而是函数调用的一种特殊形式。“标签” 指的就是函数，紧跟在后面的模板字符从就是它的参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = 5;</div><div class="line">var b = 10;</div><div class="line">tag `hello $&#123;a+b&#125; world $&#123;a*b&#125;`;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，模板字符串前面的标识“tag”，它就是个函数。整个表达式的返回值，就是tag函数处理模板字符串后的返回值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//等同于</div><div class="line">function tag（value1, value2）&#123;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="四、String-raw-方法"><a href="#四、String-raw-方法" class="headerlink" title="四、String.raw() 方法"></a>四、String.raw() 方法</h3><p>String.raw方法用来充当模板字符串的处理函数，返回一个除表达式和变量会被替换，其它都保持原样的字符串。<br>String.raw方法可以作为处理模板字符串的基本方法，它会将所有变量替换，而且对斜杠进行转义，方便下一步作为字符串来使用。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[ES6的let和const]]></title>
-      <url>http://yoursite.com/2017/07/12/es6_let/</url>
+      <url>http://yoursite.com/2017/11/09/es6_let/</url>
       <content type="html"><![CDATA[<h3 id="一、块级作用域"><a href="#一、块级作用域" class="headerlink" title="一、块级作用域"></a>一、块级作用域</h3><p>所谓“块”，就是大括号“｛｝”中间的语句。<br>ES5只有全局作用域和函数作用域，没有块级作用域，这带来了很多不合理的场景。</p>
 <p>1、变量提升，导致内层变量覆盖外层变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var tmp = 20;</div><div class="line">function f()&#123;</div><div class="line">	console.log(tmp); //变量提升，仅提升变量名，为提升变量值</div><div class="line">	var tmp = &quot;hello&quot;;</div><div class="line">&#125;</div><div class="line">f();// undefined</div></pre></td></tr></table></figure></p>
 <p>var 是函数作用域。在整个函数中甚至是声明语句之前都是可用的。声明被提升。所以你能在声明之前使用一个变量。</p>
@@ -761,7 +862,7 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[ES6简介及转码]]></title>
-      <url>http://yoursite.com/2017/07/12/es6/</url>
+      <url>http://yoursite.com/2017/11/09/es6/</url>
       <content type="html"><![CDATA[<h3 id="一、ES6是什么"><a href="#一、ES6是什么" class="headerlink" title="一、ES6是什么"></a>一、ES6是什么</h3><p>ECMAScript6（简称ES6）是JavaScript语言的下一代标准，于2015年6月发布。所以ES2015，也就是ES6。ECMAScript是JavaScript的规格，JavaScript是ECMAScript的一种实现。<br><a id="more"></a></p>
 <h3 id="二、浏览器对ES6的支持情况。"><a href="#二、浏览器对ES6的支持情况。" class="headerlink" title="二、浏览器对ES6的支持情况。"></a>二、浏览器对ES6的支持情况。</h3><p>详细情况可查阅 <a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="external">http://kangax.github.io/compat-table/es6/</a>。<br>可以看出基本上没有浏览器完全支持ES6，所以一般不要直接用的好，但是我们可以用 <strong>转码器</strong> 把ES6转换为被浏览器接受的ES5。</p>
 <h3 id="三、ES6转码"><a href="#三、ES6转码" class="headerlink" title="三、ES6转码"></a>三、ES6转码</h3><p>Babel是一个对ES6支持程度较高，使用范围较广的转码器。<br>Babel使用方法总结：<br>    <strong> 1、在命令行中使用 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$ npm install --global babel-cli</div><div class="line"></div><div class="line"># 转码结果输出到标准输出</div><div class="line">$ babel example.js</div><div class="line"></div><div class="line"># 转码结果写入一个文件</div><div class="line"># --out-file 或 -o 参数指定输出文件</div><div class="line">$ babel example.js --out-file compiled.js</div><div class="line"># 或者</div><div class="line">$ babel example.js -o compiled.js</div><div class="line"></div><div class="line"># 整个目录转码</div><div class="line"># --out-dir 或 -d 参数指定输出目录</div><div class="line">$ babel src --out-dir lib</div><div class="line"># 或者</div><div class="line">$ babel src -d lib</div><div class="line"></div><div class="line"># -s 参数生成source map文件</div><div class="line">$ babel src -d lib -s</div></pre></td></tr></table></figure></p>
@@ -772,7 +873,7 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[vue基础笔记整理]]></title>
-      <url>http://yoursite.com/2017/07/12/about_vue/</url>
+      <url>http://yoursite.com/2017/11/09/about_vue/</url>
       <content type="html"><![CDATA[<h3 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><p>vue核心思想：数据驱动，组件化。<br>vue特点：轻量，数据绑定，指令，模块化。<br>传统视图驱动：js操作dom<br>数据驱动：当数据发生变化时，用户界面发生相应的变化，不需要手动修改dom</p>
 <h4 id="1、数据绑定方式："><a href="#1、数据绑定方式：" class="headerlink" title="1、数据绑定方式："></a>1、数据绑定方式：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 插值 --&gt;</div><div class="line">&#123;&#123; message &#125;&#125;</div><div class="line">&#123;&#123;&#123; htmlSegment &#125;&#125;&#125;</div><div class="line">&lt;img src=&quot;&#123;&#123; photoURL &#125;&#125;&quot; /&gt;</div><div class="line">&lt;!-- 表达式 --&gt;</div><div class="line">&#123;&#123;true ? 1 : 0&#125;&#125;</div><div class="line">&lt;!-- 指令 --&gt;</div><div class="line">&lt;div v-if=&quot;upgradable&quot;&gt;升级指南：...&lt;/div&gt;</div><div class="line">&lt;span v-text=&quot;anotherMessage&quot;&gt;&lt;/span&gt;</div><div class="line">&lt;div v-html=&quot;anotherHTMLSegment&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;li v-bind:class=&quot;&#123;&apos;current&apos;: thisIsTheCurrentItem&#125;&quot;&gt;Item&lt;/li&gt;</div><div class="line">&lt;a v-bind:href.literal=&quot;javascript:void(0)&quot; v-on:click.stop=&quot;doSomething&quot;&gt;Click Me&lt;/a&gt;</div></pre></td></tr></table></figure>
 <h4 id="2、计算属性："><a href="#2、计算属性：" class="headerlink" title="2、计算属性："></a>2、计算属性：</h4><p>计算属性就是当其依赖属性的值发生变化时，这个属性值会自动更新，与之相关的dom部分也会自动更新。<br>Vue.js 提供了一个 $watch 方法用于观察 Vue 实例上的数据变动，这与 AngularJS 的做法类似。不过，通常更好的办法是使用计算属性而不是一个命令式的 $watch 回调。<br>模板：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    长：&#123;&#123; a &#125;&#125;m、宽：&#123;&#123; b &#125;&#125;m</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;input type=&quot;range&quot; v-model=&quot;a&quot;&gt;</div><div class="line">  &lt;input type=&quot;range&quot; v-model=&quot;b&quot;&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    长方形面积：&#123;&#123; s &#125;&#125;m&lt;sup&gt;2&lt;/sup&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
@@ -804,7 +905,7 @@ jsonp，就是&lt;script&gt;的src不符合同源策略而来的。通过&lt;scr
     
     <entry>
       <title><![CDATA[双向绑定的原理]]></title>
-      <url>http://yoursite.com/2017/07/12/about_model/</url>
+      <url>http://yoursite.com/2017/11/09/about_model/</url>
       <content type="html"></content>
     </entry>
     

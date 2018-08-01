@@ -158,14 +158,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-gulp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js_event" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/gulp/">构建工具gulp的使用</a>
+      <a class="article-title" href="/2017/11/09/js_event/">js事件委托</a>
     </h1>
   
 
@@ -173,8 +173,364 @@
          阅读 <span id="busuanzi_value_page_pv"></span>次
           </span>
         
-        <a href="/2017/07/12/gulp/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.563Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
+        <a href="/2017/11/09/js_event/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.900Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 事件委托 </strong> 就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。</p>
+<p>比如一个<code>ul</code>有100个<code>li</code>， 这 100个 <code>li</code> 都有相同的点击事件，如果我们采用循环的方法对这100个<code>li</code>click方法，这样我们就需要不断的和DOM节点交互，DOM访问次数越多，DOM重绘重排就越多。可是如果使用 事件委托机制去处理的话，我们只需要给 <code>ul</code> 加上个点击事件就可以了，DOM操作只需交互一次，大大提高性能。</p>
+<p><strong> 那事件委托是怎么去实现的呢? </strong><br>事件委托是利用事件的冒泡原理来实现的，何为事件冒泡呢？<br>就是事件从最深的节点开始，然后逐步向上传播事件，举个例子：页面上有这么一个节点树，div&gt;ul&gt;li&gt;a;比如给最里面的a加一个click点击事件，那么这个事件就会一层一层的往外执行，执行顺序a&gt;li&gt;ul&gt;div，有这样一个机制，那么我们给最外面的div加点击事件，那么里面的ul，li，a做点击事件的时候，都会冒泡到最外层的div上，所以都会触发，这就是事件委托，委托它们父级代为执行事件。</p>
+<p>如果我们只想在点击<code>li</code>的时候触发 点击事件，点击 <code>ul</code>的时候不会触发，这个时候我们可以使用（target）：<br>Event对象提供了一个属性叫target，可以返回事件的目标节点，也就是目标源，target就可以表示最初触发事件的DOM元素，标准浏览器用ev.target，IE浏览器用event.srcElement,这时只是获取了当前节点的位置，并不知道是什么节点名称，这里我们用nodeName来获取具体是什么标签名，这个返回的是一个大写的，我们需要转成小写（target.nodeName.toLowerCase）再做比较</p>
+<p>if(target.nodeName.toLowerCase() == ‘li’)</p>
+<p>通常我们会比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/js_event/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
+    <article id="post-js_division" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/js_division/">js运算出现多位小数问题</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/11/09/js_division/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.893Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不知道你们有没有踩过，js运算时出现多位小数的坑，比如 22.77+10，结果竟然是32.769999999996。<br>目前我的解决方案是这样的：<br>首先将小数变成整数，然后再除于相应的倍数。比如上面的计算可以写成（（22.77×100）+（10×100））/100</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function getNumber()&#123;</div><div class="line">	var a = 22.77;</div><div class="line">	var b = 10;</div><div class="line">    var aa = Math.pow(10,data_rate(a));//a放大的倍数</div><div class="line">    var bb = Math.pow(10,data_rate(b));//b放大的倍数</div><div class="line">    var cc = aa*bb;//总共放大的倍数</div><div class="line">    alert(((a*cc)+(b*cc))/cc)</div><div class="line">&#125;</div><div class="line">function  data_rate(str)&#123;//这里计算放大多少倍</div><div class="line">        str = str.toString();</div><div class="line">        if(str.indexOf(&quot;.&quot;) == -1)&#123;</div><div class="line">            return 1;</div><div class="line">        &#125;else&#123;</div><div class="line">            return parseInt(str.length-str.indexOf(&quot;.&quot;)-1);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/js_division/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
+    <article id="post-js_decode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/js_decode/">encodeURl()加号变空格问题</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/11/09/js_decode/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.888Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用 encodeURIComponent() ，嘿嘿。。。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/js_decode/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
+    <article id="post-js_closure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/js_closure/">Javascript闭包</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/11/09/js_closure/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.878Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、变量的作用域"><a href="#一、变量的作用域" class="headerlink" title="一、变量的作用域"></a>一、变量的作用域</h3><p>要理解闭包，首先必须理解Javascript特殊的变量作用域。<br>变量的作用域无非就是两种：全局变量和局部变量。<br>Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。</p>
+        
+          <a class="article-more-a" href="/2017/11/09/js_closure/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/js_closure/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
+    <article id="post-hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/hexo/">Hexo+Github 搭建博客</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/11/09/hexo/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.873Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装node"><a href="#1-安装node" class="headerlink" title="1. 安装node"></a>1. 安装node</h3><p>安装Node（必须）<br>作用：用来生成静态页面的<br>到Node.js官网下载相应平台的最新版本，一路安装即可。</p>
+<p>安装Git（必须）<br>作用：把本地的hexo内容提交到github上去。<br>
+        
+          <a class="article-more-a" href="/2017/11/09/hexo/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/hexo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
+    <article id="post-gulp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/gulp/">构建工具gulp的使用</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2017/11/09/gulp/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.869Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
 </a>
         
       </header>
@@ -186,7 +542,7 @@
 <p><strong> 2、全局安装gulp </strong><br>$ npm install –global gulp</p>
 <p><strong> 3、项目本地安装gulp </strong><br>$ npm install –save-dev gulp<br>(<em> –save 可以让gulp插件显示在 package.json中</em>)<br>
         
-          <a class="article-more-a" href="/2017/07/12/gulp/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/09/gulp/#more">more >></a>
         
       
 
@@ -210,7 +566,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/gulp/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/09/gulp/">展开全文 >></a>
         </p>
       
 
@@ -238,7 +594,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/git_checkout/">git撤销操作</a>
+      <a class="article-title" href="/2017/11/09/git_checkout/">git撤销操作</a>
     </h1>
   
 
@@ -246,8 +602,8 @@
          阅读 <span id="busuanzi_value_page_pv"></span>次
           </span>
         
-        <a href="/2017/07/12/git_checkout/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.563Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
+        <a href="/2017/11/09/git_checkout/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.866Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
 </a>
         
       </header>
@@ -293,7 +649,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/git_checkout/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/09/git_checkout/">展开全文 >></a>
         </p>
       
 
@@ -321,7 +677,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/git/">一张图读懂 git远程操作</a>
+      <a class="article-title" href="/2017/11/09/git/">一张图读懂 git远程操作</a>
     </h1>
   
 
@@ -329,8 +685,8 @@
          阅读 <span id="busuanzi_value_page_pv"></span>次
           </span>
         
-        <a href="/2017/07/12/git/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.562Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
+        <a href="/2017/11/09/git/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.861Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
 </a>
         
       </header>
@@ -343,7 +699,7 @@
 <p>Repository：仓库区（或本地仓库）</p>
 <p>Remote：远程仓库<br>
         
-          <a class="article-more-a" href="/2017/07/12/git/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/09/git/#more">more >></a>
         
       
 
@@ -367,7 +723,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/git/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/09/git/">展开全文 >></a>
         </p>
       
 
@@ -395,7 +751,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/flexbox/">Flex 布局</a>
+      <a class="article-title" href="/2017/11/09/flexbox/">Flex 布局</a>
     </h1>
   
 
@@ -403,8 +759,8 @@
          阅读 <span id="busuanzi_value_page_pv"></span>次
           </span>
         
-        <a href="/2017/07/12/flexbox/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.559Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
+        <a href="/2017/11/09/flexbox/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.857Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
 </a>
         
       </header>
@@ -415,7 +771,7 @@
         <p>布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。</p>
 <p>2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。</p>
         
-          <a class="article-more-a" href="/2017/07/12/flexbox/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/09/flexbox/#more">more >></a>
         
       
 
@@ -439,7 +795,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/flexbox/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/09/flexbox/">展开全文 >></a>
         </p>
       
 
@@ -460,14 +816,14 @@
 <!-- 目录内容结束 -->
 
   
-    <article id="post-es6_let" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-es6_template_string" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/es6_let/">ES6的let和const</a>
+      <a class="article-title" href="/2017/11/09/es6_template_string/">ES6 模板字符串</a>
     </h1>
   
 
@@ -475,8 +831,8 @@
          阅读 <span id="busuanzi_value_page_pv"></span>次
           </span>
         
-        <a href="/2017/07/12/es6_let/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.554Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
+        <a href="/2017/11/09/es6_template_string/" class="archive-article-date">
+  	<time datetime="2017-11-09T07:53:23.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
 </a>
         
       </header>
@@ -484,11 +840,9 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、块级作用域"><a href="#一、块级作用域" class="headerlink" title="一、块级作用域"></a>一、块级作用域</h3><p>所谓“块”，就是大括号“｛｝”中间的语句。<br>ES5只有全局作用域和函数作用域，没有块级作用域，这带来了很多不合理的场景。</p>
-<p>1、变量提升，导致内层变量覆盖外层变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var tmp = 20;</div><div class="line">function f()&#123;</div><div class="line">	console.log(tmp); //变量提升，仅提升变量名，为提升变量值</div><div class="line">	var tmp = &quot;hello&quot;;</div><div class="line">&#125;</div><div class="line">f();// undefined</div></pre></td></tr></table></figure></p>
-<p>var 是函数作用域。在整个函数中甚至是声明语句之前都是可用的。声明被提升。所以你能在声明之前使用一个变量。</p>
+        <h3 id="一、认识反引号"><a href="#一、认识反引号" class="headerlink" title="一、认识反引号"></a>一、认识反引号</h3><p>在传统的JavaScript输出模板通常是这样写的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&apos;#result&apos;).append(</div><div class="line">  &apos;There are &lt;b&gt;&apos; + basket.count + &apos;&lt;/b&gt; &apos; +</div><div class="line">  &apos;items in your basket, &apos; +</div><div class="line">  &apos;&lt;em&gt;&apos; + basket.onSale +</div><div class="line">  &apos;&lt;/em&gt; are on sale!&apos;</div><div class="line">);</div></pre></td></tr></table></figure></p>
         
-          <a class="article-more-a" href="/2017/07/12/es6_let/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/09/es6_template_string/#more">more >></a>
         
       
 
@@ -512,218 +866,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/es6_let/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- 目录内容 -->
-     
-<!-- 目录内容结束 -->
-
-  
-    <article id="post-es6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/es6/">ES6简介及转码</a>
-    </h1>
-  
-
-           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
-         阅读 <span id="busuanzi_value_page_pv"></span>次
-          </span>
-        
-        <a href="/2017/07/12/es6/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.553Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、ES6是什么"><a href="#一、ES6是什么" class="headerlink" title="一、ES6是什么"></a>一、ES6是什么</h3><p>ECMAScript6（简称ES6）是JavaScript语言的下一代标准，于2015年6月发布。所以ES2015，也就是ES6。ECMAScript是JavaScript的规格，JavaScript是ECMAScript的一种实现。<br>
-        
-          <a class="article-more-a" href="/2017/07/12/es6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/es6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- 目录内容 -->
-     
-<!-- 目录内容结束 -->
-
-  
-    <article id="post-about_vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/about_vue/">vue基础笔记整理</a>
-    </h1>
-  
-
-           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
-         阅读 <span id="busuanzi_value_page_pv"></span>次
-          </span>
-        
-        <a href="/2017/07/12/about_vue/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.552Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><p>vue核心思想：数据驱动，组件化。<br>vue特点：轻量，数据绑定，指令，模块化。<br>传统视图驱动：js操作dom<br>数据驱动：当数据发生变化时，用户界面发生相应的变化，不需要手动修改dom</p>
-<h4 id="1、数据绑定方式："><a href="#1、数据绑定方式：" class="headerlink" title="1、数据绑定方式："></a>1、数据绑定方式：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 插值 --&gt;</div><div class="line">&#123;&#123; message &#125;&#125;</div><div class="line">&#123;&#123;&#123; htmlSegment &#125;&#125;&#125;</div><div class="line">&lt;img src=&quot;&#123;&#123; photoURL &#125;&#125;&quot; /&gt;</div><div class="line">&lt;!-- 表达式 --&gt;</div><div class="line">&#123;&#123;true ? 1 : 0&#125;&#125;</div><div class="line">&lt;!-- 指令 --&gt;</div><div class="line">&lt;div v-if=&quot;upgradable&quot;&gt;升级指南：...&lt;/div&gt;</div><div class="line">&lt;span v-text=&quot;anotherMessage&quot;&gt;&lt;/span&gt;</div><div class="line">&lt;div v-html=&quot;anotherHTMLSegment&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;li v-bind:class=&quot;&#123;&apos;current&apos;: thisIsTheCurrentItem&#125;&quot;&gt;Item&lt;/li&gt;</div><div class="line">&lt;a v-bind:href.literal=&quot;javascript:void(0)&quot; v-on:click.stop=&quot;doSomething&quot;&gt;Click Me&lt;/a&gt;</div></pre></td></tr></table></figure>
-<h4 id="2、计算属性："><a href="#2、计算属性：" class="headerlink" title="2、计算属性："></a>2、计算属性：</h4><p>计算属性就是当其依赖属性的值发生变化时，这个属性值会自动更新，与之相关的dom部分也会自动更新。<br>Vue.js 提供了一个 $watch 方法用于观察 Vue 实例上的数据变动，这与 AngularJS 的做法类似。不过，通常更好的办法是使用计算属性而不是一个命令式的 $watch 回调。<br>模板：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    长：&#123;&#123; a &#125;&#125;m、宽：&#123;&#123; b &#125;&#125;m</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;input type=&quot;range&quot; v-model=&quot;a&quot;&gt;</div><div class="line">  &lt;input type=&quot;range&quot; v-model=&quot;b&quot;&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    长方形面积：&#123;&#123; s &#125;&#125;m&lt;sup&gt;2&lt;/sup&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>Vue 实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var vm = new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  data: &#123;</div><div class="line">    a: 6,</div><div class="line">    b: 5,</div><div class="line">    s: 30</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">vm.$watch(&apos;a&apos;, function (val) &#123;</div><div class="line">  this.s = val * this.b</div><div class="line">&#125;)</div><div class="line"></div><div class="line">vm.$watch(&apos;b&apos;, function (val) &#123;</div><div class="line">  this.s = this.a * val</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>如果使用计算属性，我们只需要编写一次计算逻辑，Vue.js 会自动建立该计算属性与 Vue 实例数据 a、b 的依赖关系并追踪变化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var vm = new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  data: &#123;</div><div class="line">    a: 6,</div><div class="line">    b: 5</div><div class="line">  &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    s: function () &#123;</div><div class="line">      return this.a * this.b</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>我们可以设置计算属性的getter和setter。<br><strong>计算属性getter不执行场景：</strong>当计算属性的节点被移除并且模板其他地方没有引用该属性时，那么对应的计算属性getter方法不会执行。</p>
-<p>一般情况下，使用计算属性比 $watch 实现简洁、维护方便，对于需要观察 Vue 实例数据变动的需求，如无特殊情况均应优先使用计算属性。</p>
-<p>根据 Vue.js 的 $watch API 文档，当调用 Vue 实例的 $watch 方法创建 $watch 时，返回一个 unwatch 函数，用于取消观察，因此在需要取消观察的场合，使用 $watch 为佳。</p>
-<h4 id="3、条件渲染的注意事项："><a href="#3、条件渲染的注意事项：" class="headerlink" title="3、条件渲染的注意事项："></a>3、条件渲染的注意事项：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">多于一个元素的 v-if 需要使用 &lt;template&gt;</div><div class="line">v-show 不支持 &lt;template&gt;</div><div class="line">v-else 必须紧跟在 v-if/v-show 指令后面</div><div class="line">组件条件下不能使用 &lt;v-else&gt;</div><div class="line">将v-show用在组件上时，因为指令的优先级v-else会出现问题，所以我们可以使用另一个v-show来替换v-else</div></pre></td></tr></table></figure>
-<h4 id="4、数据变化检测："><a href="#4、数据变化检测：" class="headerlink" title="4、数据变化检测："></a>4、数据变化检测：</h4><p>包装了观察数组变异的方法：push(),pop(),shift(),unshift(),splice(),sort(),reverse()。<br>观测变化的两个方法：$set,$remove.<br>track-by特殊属性。</p>
-<h4 id="5、v-bind绑定类与样式："><a href="#5、v-bind绑定类与样式：" class="headerlink" title="5、v-bind绑定类与样式："></a>5、v-bind绑定类与样式：</h4><p>使用数组语法时，绑定表达式可以直接是 Vue 实例的 Data 属性中的一个数组，根据在列表渲染中所学到的关于数据变化检测的原理及对数组方法的包装和扩充知识，可以知道，Vue.js 支持使用 push 和 $remove 方法实现元素数量的变化，从而实现了 addClass 和 removeClass 的功能。</p>
-<h4 id="6、表单控件绑定："><a href="#6、表单控件绑定：" class="headerlink" title="6、表单控件绑定："></a>6、表单控件绑定：</h4><p>使用v-model指令同步用户输入的数据到vue实例data属性中。<br>v-model修饰指令：lazy，debounce，number</p>
-<h4 id="7、事件绑定与处理："><a href="#7、事件绑定与处理：" class="headerlink" title="7、事件绑定与处理："></a>7、事件绑定与处理：</h4><p>使用 v-on 指令来监听DOM事件，当click事件与某个方法绑定的时候，定义的方法放在methods属性下。<br>methods中定义的方法内的this始终指向创建的Vue实例；与事件绑定的方法支持参数event即原生DOM事件的传入。</p>
-<p>v-on还可以使用内联语句处理，但是限制为一个语句，这个时候如果要访问原生的DOM事件，要用$event.</p>
-<p>事件修饰符：.prevent .stop .capture .self<br>事件处理器中，event.preventDefault()用来阻止事件的默认行为，event.stopPropagation()用来阻止事件冒泡。<br>.prevent相当于event.preventDefault()，.stop相当于event.stopPropagation()，.capture捕获方式侦听事件，事件以与冒泡方式相反的方式在 DOM 树上传递，.self限制只接受自身触发的事件。</p>
-<p>按键修饰符：（可以简化键盘的keycode处理）enter，tap，delete，esc，space，up，down，left，right</p>
-<h4 id="8、watch的使用："><a href="#8、watch的使用：" class="headerlink" title="8、watch的使用："></a>8、watch的使用：</h4><p>watch:一个对象，键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象。Vue 实例将会在实例化时调用 $watch()，遍历 watch 对象的每一个属性。</p>
-<p>我们对计算属性和 $watch 进行了简单的比较，对于有多个依赖需要追踪的情形，优先使用计算属性。<br>对于由一个数据变化引发多个数据、状态变化的情况，我们推荐使用 watcher；数据变化触发组件间或前后端交互的情况，使用 watcher 也更简明。</p>
-<p>关于 watcher 的应用场合，试举例如下：<br>1.某元素通过 v-show 显示后延时隐藏，可以观察 v-show 所绑定的数据，当数据为真时，启动定时器延时重新设置 v-show 所绑定的数据隐藏元素；<br>2.日历控件中，日期数值发生变化，获取年、月，计算并重绘日历面板；<br>3.分页控件用户点击页码触发 pageIndex 数据变化，观察到 pageIndex 变化时触发向后端发起 AJAX 请求，获取该页码中的数据记录，并在获取数据记录后更新分页控件中的页码及状态；<br>4.用户输入地址，数据变化触发向高德地图发起 AJAX 请求，获取相类似的地址列表并实现 auto-complete；</p>
-<p><strong>　由于 watcher 通过函数回调响应数据变化，而在回调函数中还有可能触发其他数据变化引发其他 watcher 回调，因此需要避免滥用造成回调结构过于复杂，影响性能。</strong></p>
-<h3 id="二、组件开发"><a href="#二、组件开发" class="headerlink" title="二、组件开发"></a>二、组件开发</h3><p>组件的核心目标是为了提高可复用性。一般我们把组件按照template，style，script的拆分方式，放到.vue文件中。</p>
-<h4 id="1、注册与使用-全局注册，局部注册"><a href="#1、注册与使用-全局注册，局部注册" class="headerlink" title="1、注册与使用:全局注册，局部注册"></a>1、注册与使用:全局注册，局部注册</h4><h4 id="2、数据传递："><a href="#2、数据传递：" class="headerlink" title="2、数据传递："></a>2、数据传递：</h4><p>props:<br>子组件需要用props选项来获取父组件的数据。<br>使用v-bind将动态的props绑定到父组件的数据。<br>默认绑定是单向的，但是可以使用绑定修饰符改变：.sync双向绑定，.once单向绑定。<br>可以给props指定验证要求，指定type，当验证失败时，Vue.js将拒绝在子组件上设置此值。</p>
-<p>slot:<br>slot 混合父组件的内容与子组件的内容，slot在bind回调函数中，根据name获取将要替换插槽的元素，具名slot将匹配内容片断钟有对应的slot特性元素。不过任然可以有一个匿名的slot，作为找不到匹配元素的内容片断的回退槽，它是默认slot。如果没有默认的slot，这些找不到匹配元素的内容片断将会被抛弃。<br>例如：有个multi-insertion 组件 ,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;slot name = &quot;one&quot;&gt;&lt;/slot&gt;</div><div class="line">  &lt;slot&gt;&lt;/slot&gt;</div><div class="line">  &lt;slot name = &quot;two&quot;&gt;&lt;/slot&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">父组件</div><div class="line">&lt;multi-insertion&gt;</div><div class="line">  &lt;p slot = &quot;one&quot;&gt;one&lt;/p&gt;</div><div class="line">  &lt;p slot = &quot;two&quot;&gt;one&lt;/p&gt;</div><div class="line">  &lt;p&gt;default A&lt;/p&gt;</div><div class="line">&lt;/multi-insertion&gt;</div><div class="line">结果为</div><div class="line">&lt;div&gt;</div><div class="line">  &lt;p slot = &quot;one&quot;&gt;one&lt;/p&gt;</div><div class="line">  &lt;p&gt;default A&lt;/p&gt;</div><div class="line">  &lt;p slot = &quot;two&quot;&gt;one&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>动态组件：<br>动态组件 使用同一挂载点，然后动态的在它们之间切换。将组件名绑定到Vue.js特殊的is属性上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;component :is = &quot;currentView&quot; keep-alive&gt;</div><div class="line">&lt;!--组件在vm.currentView 变化时改变--&gt;  </div><div class="line">&lt;/component&gt;</div></pre></td></tr></table></figure></p>
-<p>如果挂载组件发生变化，旧组件会被切换出去，切换出去的组件会被卸载。在挂载点上添加 keep-alive 属性。则组件被切换出去后还会保留在内存中，避免重新渲染。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/about_vue/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- 目录内容 -->
-     
-<!-- 目录内容结束 -->
-
-  
-    <article id="post-about_model" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/about_model/">双向绑定的原理</a>
-    </h1>
-  
-
-           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
-         阅读 <span id="busuanzi_value_page_pv"></span>次
-          </span>
-        
-        <a href="/2017/07/12/about_model/" class="archive-article-date">
-  	<time datetime="2017-07-12T10:56:15.551Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/about_model/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/09/es6_template_string/">展开全文 >></a>
         </p>
       
 
@@ -746,7 +889,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -758,7 +901,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 yanzi
+    		&copy; 2018 yanzi
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -841,19 +984,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -869,11 +1012,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -882,6 +1025,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
