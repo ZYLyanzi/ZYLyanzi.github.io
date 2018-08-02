@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>关于 this | 前端小生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、this最终指向的是调用它的对象  2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象  3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];
-12345678910">
+  <meta name="description" content="1、this最终指向的是调用它的对象  2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象  3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 
+1234567891011121314151617181920212223242526272829303132333435//示例一f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 this">
 <meta property="og:url" content="http://yoursite.com/2018/08/01/es5_this/index.html">
 <meta property="og:site_name" content="前端小生活">
-<meta property="og:description" content="1、this最终指向的是调用它的对象  2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象  3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];
-12345678910">
-<meta property="og:updated_time" content="2018-08-01T13:08:16.056Z">
+<meta property="og:description" content="1、this最终指向的是调用它的对象  2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象  3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 
+1234567891011121314151617181920212223242526272829303132333435//示例一f">
+<meta property="og:updated_time" content="2018-08-01T13:22:02.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 this">
-<meta name="twitter:description" content="1、this最终指向的是调用它的对象  2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象  3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];
-12345678910">
+<meta name="twitter:description" content="1、this最终指向的是调用它的对象  2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象  3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 
+1234567891011121314151617181920212223242526272829303132333435//示例一f">
   
     <link rel="alternative" href="/atom.xml" title="前端小生活" type="application/atom+xml">
   
@@ -184,8 +184,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong> 1、this最终指向的是调用它的对象 </strong><br><strong> 2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象 </strong><br><strong> 3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 </strong><br><strong>box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">//示例一</div><div class="line">function a()&#123;</div><div class="line">    var user = &quot;yanzi&quot;;</div><div class="line">    console.log(this.user)  //undefined</div><div class="line">    console.log(this)  //Window</div><div class="line">&#125;</div><div class="line">window.a();</div><div class="line"></div><div class="line">//示例二</div><div class="line">var o = &#123;</div><div class="line">    a: 10,</div><div class="line">    b: &#123;</div><div class="line">        a: 12,</div><div class="line">        fn: function()&#123;</div><div class="line">            console.log(this.a)  // 12</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> o.b.fn();</div><div class="line"></div><div class="line"> //示例三</div><div class="line"> function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return function()&#123;&#125;;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user); //undefined</div><div class="line"> </div><div class="line"> //示例四</div><div class="line">  function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return 1;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user);  //yanzi</div></pre></td></tr></table></figure>
+        <p><strong> 1、this最终指向的是调用它的对象 </strong><br><strong> 2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象 </strong><br><strong> 3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">//示例一</div><div class="line">function a()&#123;</div><div class="line">    var user = &quot;yanzi&quot;;</div><div class="line">    console.log(this.user)  //undefined</div><div class="line">    console.log(this)  //Window</div><div class="line">&#125;</div><div class="line">window.a();</div><div class="line"></div><div class="line">//示例二</div><div class="line">var o = &#123;</div><div class="line">    a: 10,</div><div class="line">    b: &#123;</div><div class="line">        a: 12,</div><div class="line">        fn: function()&#123;</div><div class="line">            console.log(this.a)  // 12</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> o.b.fn();</div><div class="line"></div><div class="line"> //示例三</div><div class="line"> function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return function()&#123;&#125;;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user); //undefined</div><div class="line"></div><div class="line"> //示例四</div><div class="line">  function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return 1;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user);  //yanzi</div></pre></td></tr></table></figure>
       
 
       
@@ -293,6 +293,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/08/02/origin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          跨域 和 html语义化笔记整理
+        
+      </div>
+    </a>
   
   
     <a href="/2018/07/09/about_css3/" id="article-nav-older" class="article-nav-link-wrap">
@@ -470,6 +479,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">cssl</a>
               </li>
             
             <div class="clearfix"></div>

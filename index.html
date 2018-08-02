@@ -158,6 +158,156 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-css3D" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/02/css3D/">Css3D应用</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2018/08/02/css3D/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:21:41.006Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、-陀螺仪角度"><a href="#一、-陀螺仪角度" class="headerlink" title="一、 陀螺仪角度"></a>一、 陀螺仪角度</h3><p>X（beta,作用域为-180, 180）<br>y（gamma，作用域为-90， 90）<br>z（alpha，作用域为0, 360）<br><img src="/uploads/css3/tuoluoyi.jpg" alt="01"></p>
+<p><strong> 1.  deviceorientation </strong><br>设备的物理方向信息，表示为一系列本地坐标系的旋角。<br>(获取旋转角度)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;deviceorientation&quot;, function(event)&#123;</div><div class="line">   // 处理 event.alpha、event.beta、event.gamma</div><div class="line">&#125;, true);</div></pre></td></tr></table></figure></p>
+<p><strong> 2.   devicemotion </strong><br>提供设备的加速信息。<br>（获取重力加速度）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;devicemotion&quot;, function(event)&#123;</div><div class="line">   // 处理event.acceleration</div><div class="line">   // x(y,z): 设备在x(y,z)方向上的移动加速度值</div><div class="line">   // event.accelerationIncludingGravity</div><div class="line">   // 考虑了重力加速度后设备在x(y,z)</div><div class="line">   // event.rotationRate</div><div class="line">   // alpha, beta, gamma: 设备绕x，y，z轴旋转的角度</div><div class="line">&#125;, true);</div></pre></td></tr></table></figure></p>
+<p><strong>  3.  compassneedscalibration </strong><br>用于通知web站点使用罗盘信息校准上述事件。<br>（获取罗盘校准）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;compassneedscalibration&quot;, function(event)&#123;</div><div class="line">   alert(&apos;您的罗盘需要校准&apos;);</div><div class="line">   event.preventDefault();</div><div class="line">&#125;, true);</div></pre></td></tr></table></figure></p>
+<p><strong> 简单的摇一摇触发代码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var speed = 30; // speed</div><div class="line">var x = y = z = lastX = lastY = lastZ = 0;</div><div class="line">function deviceMotionHandler(eventData) &#123;</div><div class="line">   var acceleration = event.accelerationIncludingGravity;</div><div class="line">   x = acceleration.x;</div><div class="line">   y = acceleration.y;</div><div class="line">   z = acceleration.z;</div><div class="line"></div><div class="line">   //记录上一次设备在x,y,z方向上的加速度</div><div class="line">   if ((!lastX) &amp;&amp; (!lastY) &amp;&amp; (!lastZ)) &#123;</div><div class="line">      lastX = acceleration.x;</div><div class="line">      lastY = acceleration.y;</div><div class="line">      lastZ = acceleration.z;</div><div class="line">      return;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   if (Math.abs(x-lastX) &gt; speed || Math.abs(y-lastY) &gt; speed || Math.abs(z-lastZ) &gt; speed )&#123;</div><div class="line">      // 简单摇一摇触发代码</div><div class="line">      alert(1);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="二、-Touch事件"><a href="#二、-Touch事件" class="headerlink" title="二、  Touch事件"></a>二、  Touch事件</h3><p>最基本的touch事件包括4个事件：<br>touchstart: 当在屏幕上按下手指时触发<br>touchmove: 当在屏幕上移动手指时触发<br>touchend: 当在屏幕上抬起手指时触发<br>touchcancel:<br>当一些更高级别的事件发生的时候（如电话接入或者弹出信息）会取消当前的touch操作，即触发touchcancel。一般会在touchcancel时暂停游戏、存档等操作。</p>
+<h3 id="三、-Css核心技巧"><a href="#三、-Css核心技巧" class="headerlink" title="三、 Css核心技巧"></a>三、 Css核心技巧</h3><p><strong> 1、   布局方式</strong><br>圣杯布局，双飞翼布局，绝对定位布局，flex布局<br>（圣杯，双飞翼为了兼容早期的ie浏览器，兼容性最好）</p>
+<p><strong> 2、   引用neat.css 处理一些兼容性问题</strong><br><strong> 3、   Cssicon 图标</strong> </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cssl</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/02/css3D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
+    <article id="post-origin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/02/origin/">跨域 和 html语义化笔记整理</a>
+    </h1>
+  
+
+           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
+         阅读 <span id="busuanzi_value_page_pv"></span>次
+          </span>
+        
+        <a href="/2018/08/02/origin/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:12:11.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、-关于前端跨域"><a href="#一、-关于前端跨域" class="headerlink" title="一、 关于前端跨域"></a>一、 关于前端跨域</h3><p>1）、同源：端口，域名，协议<br>2）、同源的目的：保证用户信息安全，防止恶意的网站窃取数据。<br>3）、浏览器不同域名不能访问对应的cookie，但内部表单不受限制，所以会造成跨站攻击。<br>4）、同源策略限制的对象：<br>Cookie，LocalStrorage 和IndexDB 无法读取。<br>DOM无法获得。<br>Ajax请求不能发送。</p>
+<p>5）、突破同源策略<br>1.document.domain = ‘<em>*</em>.com’ //设置同域， 此方案仅限主域相同，子域不同的跨域应用场景。<br>2．Jsonp的原理，</p>
+<h3 id="二、-关于-WebSQl，IndexedDB"><a href="#二、-关于-WebSQl，IndexedDB" class="headerlink" title="二、 关于 WebSQl，IndexedDB"></a>二、 关于 WebSQl，IndexedDB</h3><h3 id="三、-关于-QPS"><a href="#三、-关于-QPS" class="headerlink" title="三、 关于 QPS"></a>三、 关于 QPS</h3><p>测试手机网速webapp页面，根据这个网速，可以给用户出一些网速比较慢的解决方案。比如跳转到简版的网页。<br>测试的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var s = new Image();</div><div class="line">var start = Date.now();</div><div class="line">s.src = &apos;http://www.baidu.com/s.gif&apos;; //例子 ...s.gif = 1.5kb</div><div class="line">s.onload = function (argument)&#123;</div><div class="line">   var end = Date.now();</div><div class="line">   t = end-start;</div><div class="line">   v = (Math.round (1.5*1000)/t)+ &apos;kb/s&apos;;</div></pre></td></tr></table></figure>
+<h3 id="三、-关于-html-语义化"><a href="#三、-关于-html-语义化" class="headerlink" title="三、 关于 html 语义化"></a>三、 关于 html 语义化</h3><p>使用div进行布局，不要用div进行无意义的包裹，尽可能少使用无语义的标签div和span<br>尽量少写html。</p>
+<p>少写html可以减少dom的渲染时间，还可以避免浪费整个文件的大小。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/02/origin/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- 目录内容 -->
+     
+<!-- 目录内容结束 -->
+
+  
     <article id="post-es5_this" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -182,8 +332,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong> 1、this最终指向的是调用它的对象 </strong><br><strong> 2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象 </strong><br><strong> 3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 </strong><br><strong>box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">//示例一</div><div class="line">function a()&#123;</div><div class="line">    var user = &quot;yanzi&quot;;</div><div class="line">    console.log(this.user)  //undefined</div><div class="line">    console.log(this)  //Window</div><div class="line">&#125;</div><div class="line">window.a();</div><div class="line"></div><div class="line">//示例二</div><div class="line">var o = &#123;</div><div class="line">    a: 10,</div><div class="line">    b: &#123;</div><div class="line">        a: 12,</div><div class="line">        fn: function()&#123;</div><div class="line">            console.log(this.a)  // 12</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> o.b.fn();</div><div class="line"></div><div class="line"> //示例三</div><div class="line"> function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return function()&#123;&#125;;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user); //undefined</div><div class="line"> </div><div class="line"> //示例四</div><div class="line">  function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return 1;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user);  //yanzi</div></pre></td></tr></table></figure>
+        <p><strong> 1、this最终指向的是调用它的对象 </strong><br><strong> 2、这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象 </strong><br><strong> 3、如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。 </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">//示例一</div><div class="line">function a()&#123;</div><div class="line">    var user = &quot;yanzi&quot;;</div><div class="line">    console.log(this.user)  //undefined</div><div class="line">    console.log(this)  //Window</div><div class="line">&#125;</div><div class="line">window.a();</div><div class="line"></div><div class="line">//示例二</div><div class="line">var o = &#123;</div><div class="line">    a: 10,</div><div class="line">    b: &#123;</div><div class="line">        a: 12,</div><div class="line">        fn: function()&#123;</div><div class="line">            console.log(this.a)  // 12</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> o.b.fn();</div><div class="line"></div><div class="line"> //示例三</div><div class="line"> function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return function()&#123;&#125;;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user); //undefined</div><div class="line"></div><div class="line"> //示例四</div><div class="line">  function fn()&#123;</div><div class="line">    this.user = &quot;yanzi&quot;;</div><div class="line">    return 1;</div><div class="line"> &#125;</div><div class="line"> var a = new fn;</div><div class="line"> console.log(a.user);  //yanzi</div></pre></td></tr></table></figure>
       
 
       
@@ -748,148 +898,6 @@
 <!-- 目录内容结束 -->
 
   
-    <article id="post-websource" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/09/websource/">前端资源推荐</a>
-    </h1>
-  
-
-           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
-         阅读 <span id="busuanzi_value_page_pv"></span>次
-          </span>
-        
-        <a href="/2017/11/09/websource/" class="archive-article-date">
-  	<time datetime="2017-11-09T07:53:24.013Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最全的资源教程-前端涉及的所有知识体系 <a href="https://github.com/AutumnsWind/Front-end-tutorial" target="_blank" rel="external">https://github.com/AutumnsWind/Front-end-tutorial</a></p>
-<p>前端导航 <a href="http://whycss.com/" target="_blank" rel="external">http://whycss.com/</a></p>
-<p>开发者头条 <a href="http://toutiao.io/" target="_blank" rel="external">http://toutiao.io/</a></p>
-<p>git中文帮助文档 <a href="https://git-scm.com/book/zh/v1/" target="_blank" rel="external">https://git-scm.com/book/zh/v1/</a></p>
-<p>在线JSON校验 <a href="http://www.bejson.com/" target="_blank" rel="external">http://www.bejson.com/</a></p>
-<p>阮一峰ECMAScript 6中文教程 <a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">http://es6.ruanyifeng.com/</a></p>
-<p>React Native中文网 <a href="http://reactnative.cn/" target="_blank" rel="external">http://reactnative.cn/</a></p>
-<p>腾讯AlloyTeam全端团队Blog <a href="http://www.alloyteam.com/" target="_blank" rel="external">http://www.alloyteam.com/</a></p>
-<p>百度前端研发部Blog <a href="http://fex.baidu.com/" target="_blank" rel="external">http://fex.baidu.com/</a></p>
-<p>淘宝网UED团队Blog <a href="http://ued.taobao.org/blog/" target="_blank" rel="external">http://ued.taobao.org/blog/</a></p>
-<p>阿里巴巴国际UED团队Blog <a href="http://www.aliued.com/" target="_blank" rel="external">http://www.aliued.com/</a></p>
-<p>php大牛惠新宸Blog <a href="http://www.laruence.com/" target="_blank" rel="external">http://www.laruence.com/</a></p>
-<p>浏览器兼容插叙 [<a href="http://caniuse.com/" target="_blank" rel="external">http://caniuse.com/</a>]</p>
-<p>设计模式书籍：《Head First 设计模式》</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/09/websource/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- 目录内容 -->
-     
-<!-- 目录内容结束 -->
-
-  
-    <article id="post-webperformance" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/09/webperformance/">前端性能优化总结</a>
-    </h1>
-  
-
-           <span id="busuanzi_container_page_pv" style = "color:#969696; font-size:16px; margin-left:10px;">
-         阅读 <span id="busuanzi_value_page_pv"></span>次
-          </span>
-        
-        <a href="/2017/11/09/webperformance/" class="archive-article-date">
-  	<time datetime="2017-11-09T07:53:24.005Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 我们建立网站就是想让目标人群来访问，前端是用户所直接接触的。为了给用户更好的体验，前端性能优化是必须滴！最近读了本《高性能的JavaScript》，然后结合实际遇到的问题。总结以下几个方面进行前端性能优化：</p>
-        
-          <a class="article-more-a" href="/2017/11/09/webperformance/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">性能</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/09/webperformance/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- 目录内容 -->
-     
-<!-- 目录内容结束 -->
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1032,6 +1040,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">cssl</a>
               </li>
             
             <div class="clearfix"></div>

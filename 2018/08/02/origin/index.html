@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Javascript 模板引擎 | 前端小生活</title>
+  <title>跨域 和 html语义化笔记整理 | 前端小生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术改变生活,分享沉淀自我">
+  <meta name="description" content="一、 关于前端跨域1）、同源：端口，域名，协议2）、同源的目的：保证用户信息安全，防止恶意的网站窃取数据。3）、浏览器不同域名不能访问对应的cookie，但内部表单不受限制，所以会造成跨站攻击。4）、同源策略限制的对象：Cookie，LocalStrorage 和IndexDB 无法读取。DOM无法获得。Ajax请求不能发送。
+5）、突破同源策略1.document.domain = ‘*.com">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript 模板引擎">
-<meta property="og:url" content="http://yoursite.com/2017/11/09/js_template/index.html">
+<meta property="og:title" content="跨域 和 html语义化笔记整理">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/origin/index.html">
 <meta property="og:site_name" content="前端小生活">
-<meta property="og:description" content="技术改变生活,分享沉淀自我">
-<meta property="og:updated_time" content="2017-02-10T07:12:46.219Z">
+<meta property="og:description" content="一、 关于前端跨域1）、同源：端口，域名，协议2）、同源的目的：保证用户信息安全，防止恶意的网站窃取数据。3）、浏览器不同域名不能访问对应的cookie，但内部表单不受限制，所以会造成跨站攻击。4）、同源策略限制的对象：Cookie，LocalStrorage 和IndexDB 无法读取。DOM无法获得。Ajax请求不能发送。
+5）、突破同源策略1.document.domain = ‘*.com">
+<meta property="og:updated_time" content="2018-08-02T12:17:46.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript 模板引擎">
-<meta name="twitter:description" content="技术改变生活,分享沉淀自我">
+<meta name="twitter:title" content="跨域 和 html语义化笔记整理">
+<meta name="twitter:description" content="一、 关于前端跨域1）、同源：端口，域名，协议2）、同源的目的：保证用户信息安全，防止恶意的网站窃取数据。3）、浏览器不同域名不能访问对应的cookie，但内部表单不受限制，所以会造成跨站攻击。4）、同源策略限制的对象：Cookie，LocalStrorage 和IndexDB 无法读取。DOM无法获得。Ajax请求不能发送。
+5）、突破同源策略1.document.domain = ‘*.com">
   
     <link rel="alternative" href="/atom.xml" title="前端小生活" type="application/atom+xml">
   
@@ -157,14 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js_template" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-origin" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Javascript 模板引擎
+      跨域 和 html语义化笔记整理
     </h1>
   
 
@@ -172,8 +175,8 @@
          阅读 <span id="busuanzi_value_page_pv"></span>次
           </span>
         
-        <a href="/2017/11/09/js_template/" class="archive-article-date">
-  	<time datetime="2017-11-09T07:53:23.903Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+        <a href="/2018/08/02/origin/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:12:11.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
 </a>
         
       </header>
@@ -181,7 +184,13 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="一、-关于前端跨域"><a href="#一、-关于前端跨域" class="headerlink" title="一、 关于前端跨域"></a>一、 关于前端跨域</h3><p>1）、同源：端口，域名，协议<br>2）、同源的目的：保证用户信息安全，防止恶意的网站窃取数据。<br>3）、浏览器不同域名不能访问对应的cookie，但内部表单不受限制，所以会造成跨站攻击。<br>4）、同源策略限制的对象：<br>Cookie，LocalStrorage 和IndexDB 无法读取。<br>DOM无法获得。<br>Ajax请求不能发送。</p>
+<p>5）、突破同源策略<br>1.document.domain = ‘<em>*</em>.com’ //设置同域， 此方案仅限主域相同，子域不同的跨域应用场景。<br>2．Jsonp的原理，</p>
+<h3 id="二、-关于-WebSQl，IndexedDB"><a href="#二、-关于-WebSQl，IndexedDB" class="headerlink" title="二、 关于 WebSQl，IndexedDB"></a>二、 关于 WebSQl，IndexedDB</h3><h3 id="三、-关于-QPS"><a href="#三、-关于-QPS" class="headerlink" title="三、 关于 QPS"></a>三、 关于 QPS</h3><p>测试手机网速webapp页面，根据这个网速，可以给用户出一些网速比较慢的解决方案。比如跳转到简版的网页。<br>测试的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var s = new Image();</div><div class="line">var start = Date.now();</div><div class="line">s.src = &apos;http://www.baidu.com/s.gif&apos;; //例子 ...s.gif = 1.5kb</div><div class="line">s.onload = function (argument)&#123;</div><div class="line">   var end = Date.now();</div><div class="line">   t = end-start;</div><div class="line">   v = (Math.round (1.5*1000)/t)+ &apos;kb/s&apos;;</div></pre></td></tr></table></figure>
+<h3 id="三、-关于-html-语义化"><a href="#三、-关于-html-语义化" class="headerlink" title="三、 关于 html 语义化"></a>三、 关于 html 语义化</h3><p>使用div进行布局，不要用div进行无意义的包裹，尽可能少使用无语义的标签div和span<br>尽量少写html。</p>
+<p>少写html可以减少dom的渲染时间，还可以避免浪费整个文件的大小。</p>
+
       
 
       
@@ -220,7 +229,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
         		</li>
       		
 		</ul>
@@ -276,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/09/js_template/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/08/02/origin/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +299,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/09/kuayu/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/08/02/css3D/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          跨域请求的几种方式
+          Css3D应用
         
       </div>
     </a>
   
   
-    <a href="/2017/11/09/js_event/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js事件委托</div>
+    <a href="/2018/08/01/es5_this/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于 this</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -315,7 +324,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js_template" data-title="Javascript 模板引擎" data-url="http://yoursite.com/2017/11/09/js_template/"></div>
+	<div class="ds-thread" data-thread-key="origin" data-title="跨域 和 html语义化笔记整理" data-url="http://yoursite.com/2018/08/02/origin/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

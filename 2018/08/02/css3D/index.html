@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Javascript 模板引擎 | 前端小生活</title>
+  <title>Css3D应用 | 前端小生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术改变生活,分享沉淀自我">
+  <meta name="description" content="一、 陀螺仪角度X（beta,作用域为-180, 180）y（gamma，作用域为-90， 90）z（alpha，作用域为0, 360）
+ 1.  deviceorientation 设备的物理方向信息，表示为一系列本地坐标系的旋角。(获取旋转角度)123window.addEventListener(&amp;quot;deviceorientation&amp;quot;, function(event)&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript 模板引擎">
-<meta property="og:url" content="http://yoursite.com/2017/11/09/js_template/index.html">
+<meta property="og:title" content="Css3D应用">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/css3D/index.html">
 <meta property="og:site_name" content="前端小生活">
-<meta property="og:description" content="技术改变生活,分享沉淀自我">
-<meta property="og:updated_time" content="2017-02-10T07:12:46.219Z">
+<meta property="og:description" content="一、 陀螺仪角度X（beta,作用域为-180, 180）y（gamma，作用域为-90， 90）z（alpha，作用域为0, 360）
+ 1.  deviceorientation 设备的物理方向信息，表示为一系列本地坐标系的旋角。(获取旋转角度)123window.addEventListener(&amp;quot;deviceorientation&amp;quot;, function(event)&amp;#">
+<meta property="og:image" content="http://yoursite.com/uploads/css3/tuoluoyi.jpg">
+<meta property="og:updated_time" content="2018-08-02T12:44:01.199Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript 模板引擎">
-<meta name="twitter:description" content="技术改变生活,分享沉淀自我">
+<meta name="twitter:title" content="Css3D应用">
+<meta name="twitter:description" content="一、 陀螺仪角度X（beta,作用域为-180, 180）y（gamma，作用域为-90， 90）z（alpha，作用域为0, 360）
+ 1.  deviceorientation 设备的物理方向信息，表示为一系列本地坐标系的旋角。(获取旋转角度)123window.addEventListener(&amp;quot;deviceorientation&amp;quot;, function(event)&amp;#">
+<meta name="twitter:image" content="http://yoursite.com/uploads/css3/tuoluoyi.jpg">
   
     <link rel="alternative" href="/atom.xml" title="前端小生活" type="application/atom+xml">
   
@@ -157,14 +162,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js_template" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-css3D" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Javascript 模板引擎
+      Css3D应用
     </h1>
   
 
@@ -172,8 +177,8 @@
          阅读 <span id="busuanzi_value_page_pv"></span>次
           </span>
         
-        <a href="/2017/11/09/js_template/" class="archive-article-date">
-  	<time datetime="2017-11-09T07:53:23.903Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+        <a href="/2018/08/02/css3D/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:21:41.006Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
 </a>
         
       </header>
@@ -181,7 +186,15 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="一、-陀螺仪角度"><a href="#一、-陀螺仪角度" class="headerlink" title="一、 陀螺仪角度"></a>一、 陀螺仪角度</h3><p>X（beta,作用域为-180, 180）<br>y（gamma，作用域为-90， 90）<br>z（alpha，作用域为0, 360）<br><img src="/uploads/css3/tuoluoyi.jpg" alt="01"></p>
+<p><strong> 1.  deviceorientation </strong><br>设备的物理方向信息，表示为一系列本地坐标系的旋角。<br>(获取旋转角度)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;deviceorientation&quot;, function(event)&#123;</div><div class="line">   // 处理 event.alpha、event.beta、event.gamma</div><div class="line">&#125;, true);</div></pre></td></tr></table></figure></p>
+<p><strong> 2.   devicemotion </strong><br>提供设备的加速信息。<br>（获取重力加速度）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;devicemotion&quot;, function(event)&#123;</div><div class="line">   // 处理event.acceleration</div><div class="line">   // x(y,z): 设备在x(y,z)方向上的移动加速度值</div><div class="line">   // event.accelerationIncludingGravity</div><div class="line">   // 考虑了重力加速度后设备在x(y,z)</div><div class="line">   // event.rotationRate</div><div class="line">   // alpha, beta, gamma: 设备绕x，y，z轴旋转的角度</div><div class="line">&#125;, true);</div></pre></td></tr></table></figure></p>
+<p><strong>  3.  compassneedscalibration </strong><br>用于通知web站点使用罗盘信息校准上述事件。<br>（获取罗盘校准）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;compassneedscalibration&quot;, function(event)&#123;</div><div class="line">   alert(&apos;您的罗盘需要校准&apos;);</div><div class="line">   event.preventDefault();</div><div class="line">&#125;, true);</div></pre></td></tr></table></figure></p>
+<p><strong> 简单的摇一摇触发代码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var speed = 30; // speed</div><div class="line">var x = y = z = lastX = lastY = lastZ = 0;</div><div class="line">function deviceMotionHandler(eventData) &#123;</div><div class="line">   var acceleration = event.accelerationIncludingGravity;</div><div class="line">   x = acceleration.x;</div><div class="line">   y = acceleration.y;</div><div class="line">   z = acceleration.z;</div><div class="line"></div><div class="line">   //记录上一次设备在x,y,z方向上的加速度</div><div class="line">   if ((!lastX) &amp;&amp; (!lastY) &amp;&amp; (!lastZ)) &#123;</div><div class="line">      lastX = acceleration.x;</div><div class="line">      lastY = acceleration.y;</div><div class="line">      lastZ = acceleration.z;</div><div class="line">      return;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   if (Math.abs(x-lastX) &gt; speed || Math.abs(y-lastY) &gt; speed || Math.abs(z-lastZ) &gt; speed )&#123;</div><div class="line">      // 简单摇一摇触发代码</div><div class="line">      alert(1);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="二、-Touch事件"><a href="#二、-Touch事件" class="headerlink" title="二、  Touch事件"></a>二、  Touch事件</h3><p>最基本的touch事件包括4个事件：<br>touchstart: 当在屏幕上按下手指时触发<br>touchmove: 当在屏幕上移动手指时触发<br>touchend: 当在屏幕上抬起手指时触发<br>touchcancel:<br>当一些更高级别的事件发生的时候（如电话接入或者弹出信息）会取消当前的touch操作，即触发touchcancel。一般会在touchcancel时暂停游戏、存档等操作。</p>
+<h3 id="三、-Css核心技巧"><a href="#三、-Css核心技巧" class="headerlink" title="三、 Css核心技巧"></a>三、 Css核心技巧</h3><p><strong> 1、   布局方式</strong><br>圣杯布局，双飞翼布局，绝对定位布局，flex布局<br>（圣杯，双飞翼为了兼容早期的ie浏览器，兼容性最好）</p>
+<p><strong> 2、   引用neat.css 处理一些兼容性问题</strong><br><strong> 3、   Cssicon 图标</strong> </p>
+
       
 
       
@@ -220,7 +233,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cssl</a>
         		</li>
       		
 		</ul>
@@ -276,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/09/js_template/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/08/02/css3D/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +303,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/09/kuayu/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          跨域请求的几种方式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/09/js_event/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js事件委托</div>
+    <a href="/2018/08/02/origin/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">跨域 和 html语义化笔记整理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -315,7 +319,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js_template" data-title="Javascript 模板引擎" data-url="http://yoursite.com/2017/11/09/js_template/"></div>
+	<div class="ds-thread" data-thread-key="css3D" data-title="Css3D应用" data-url="http://yoursite.com/2018/08/02/css3D/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
