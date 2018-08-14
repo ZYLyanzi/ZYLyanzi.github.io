@@ -4,8 +4,8 @@
   
     
     <entry>
-      <title><![CDATA[Css3D应用]]></title>
-      <url>http://yoursite.com/2018/08/02/css3D/</url>
+      <title><![CDATA[Css3D应用-陀螺仪]]></title>
+      <url>http://yoursite.com/2018/08/14/css3D/</url>
       <content type="html"><![CDATA[<h3 id="一、-陀螺仪角度"><a href="#一、-陀螺仪角度" class="headerlink" title="一、 陀螺仪角度"></a>一、 陀螺仪角度</h3><p>X（beta,作用域为-180, 180）<br>y（gamma，作用域为-90， 90）<br>z（alpha，作用域为0, 360）<br><img src="/uploads/css3/tuoluoyi.jpg" alt="01"></p>
 <p><strong> 1.  deviceorientation </strong><br>设备的物理方向信息，表示为一系列本地坐标系的旋角。<br>(获取旋转角度)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;deviceorientation&quot;, function(event)&#123;</div><div class="line">   // 处理 event.alpha、event.beta、event.gamma</div><div class="line">&#125;, true);</div></pre></td></tr></table></figure></p>
 <p><strong> 2.   devicemotion </strong><br>提供设备的加速信息。<br>（获取重力加速度）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;devicemotion&quot;, function(event)&#123;</div><div class="line">   // 处理event.acceleration</div><div class="line">   // x(y,z): 设备在x(y,z)方向上的移动加速度值</div><div class="line">   // event.accelerationIncludingGravity</div><div class="line">   // 考虑了重力加速度后设备在x(y,z)</div><div class="line">   // event.rotationRate</div><div class="line">   // alpha, beta, gamma: 设备绕x，y，z轴旋转的角度</div><div class="line">&#125;, true);</div></pre></td></tr></table></figure></p>
@@ -14,6 +14,8 @@
 <h3 id="二、-Touch事件"><a href="#二、-Touch事件" class="headerlink" title="二、  Touch事件"></a>二、  Touch事件</h3><p>最基本的touch事件包括4个事件：<br>touchstart: 当在屏幕上按下手指时触发<br>touchmove: 当在屏幕上移动手指时触发<br>touchend: 当在屏幕上抬起手指时触发<br>touchcancel:<br>当一些更高级别的事件发生的时候（如电话接入或者弹出信息）会取消当前的touch操作，即触发touchcancel。一般会在touchcancel时暂停游戏、存档等操作。</p>
 <h3 id="三、-Css核心技巧"><a href="#三、-Css核心技巧" class="headerlink" title="三、 Css核心技巧"></a>三、 Css核心技巧</h3><p><strong> 1、   布局方式</strong><br>圣杯布局，双飞翼布局，绝对定位布局，flex布局<br>（圣杯，双飞翼为了兼容早期的ie浏览器，兼容性最好）</p>
 <p><strong> 2、   引用neat.css 处理一些兼容性问题</strong><br><strong> 3、   Cssicon 图标</strong> </p>
+<h3 id="四、-css3D转换-transform"><a href="#四、-css3D转换-transform" class="headerlink" title="四、 css3D转换  transform"></a>四、 css3D转换  transform</h3><p><img src="/uploads/css3/transform.png" alt="01"></p>
+<p>上面的translateZ, 当translateZ为正值的时候，元素会向其面对的方向走去；如果元素无旋转，就会朝显示器走来！！<br><code>r = 64 / Math.tan(20 / 180 * Math.PI) ≈ 175.8</code><br><img src="/uploads/css3/.png" alt="02"></p>
 ]]></content>
     </entry>
     
